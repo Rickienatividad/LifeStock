@@ -1,0 +1,15 @@
+.toolbar{
+    /* anchor at bottom */
+    position:absolute;
+    bottom:0;
+    left:0;
+
+    /* size */
+    width:100vw;
+    height:10vh;
+
+    /* themes */
+    background-color:rgb(91, 3, 132);
+    color:white;
+
+}
