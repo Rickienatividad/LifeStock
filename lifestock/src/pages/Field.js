@@ -207,16 +207,15 @@ function Field() {
   ];
   return (
     <div className="App">
-      <h4 className="welcome">Welcome, {username.toUpperCase()}</h4>
-      <header className="App-header">
-        <div className="container">
-        
+      
+      
+        <div className="field_container">
+        <div className="welcome">Welcome, {username.toUpperCase()}</div>
       
       {isVisible ? 
                 <div className="boolean_container">
                 <ReactTabulator
-                  maxheight={"100%"}
-                  maxwidth={"75%"}
+                  
                   data={data}
                   columns={columns}
                   layout={"fitDataFill"}
@@ -228,8 +227,7 @@ function Field() {
                 : 
                   <div className="integer_container">
                   <ReactTabulator
-                    maxheight={"100%"}
-                    maxwidth={"75%"}
+                  
                     data={itemData}
                     columns={itemColumns}
                     layout={"fitDataFill"}
@@ -243,7 +241,7 @@ function Field() {
 
  
         </div>
-        <div className="container2">
+        
           
           <Modal show={isInputVisible} onClose={hideMessages}>
             <form onSubmit={handleSubmit}>
@@ -279,13 +277,13 @@ function Field() {
               <button type="submit">Submit</button>
             </form>
           </Modal>
-        </div>
+        
         <div className="bottom-Bar">
         <button className="field_button" type="button" onClick={handleChecklist}> Reset Rig {userRig} Checklist</button>
         <button className="field_button" type="button" onClick={showMessages}>Send A Message</button>
         <button className="field_button" onClick={toggleDiv}>Toggle</button>
           </div>
-      </header>
+    
     </div>
   );
 }

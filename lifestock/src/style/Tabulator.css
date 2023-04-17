@@ -1,0 +1,17 @@
+
+
+.tabulator{
+    height:70vh;
+    font-size:2vh;
+    max-width: 100%;
+  }
+      .tabulator-header{
+        font-size:large;
+      }
+
+      .tabulator-row{
+        background:rgb(133, 89, 133);
+      }
+          .tabulator-row-even{
+            background:blue;
+          }

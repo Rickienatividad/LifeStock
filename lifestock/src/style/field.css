@@ -1,3 +1,6 @@
+@import './Tabulator.css';
+
+
 .App {
     text-align: center;
     overflow:hidden;
@@ -15,17 +18,21 @@
   }
 
   .welcome {
-    margin-top: 1.8rem;
+    display:hidden;
   }
   
   
-  .container {
-    /* position:fixed; */
+  .field_container {
+    position:fixed;
+    display:flex;
+    justify-content:start;
+    flex-direction:column;
     top:0;
     left:0;
-    min-height:60vh;
+    height:90vh;
     width:100vw;
     background-color:rgb(83, 37, 126);
+    align-items: center;
   }
   .container2 {
     /* position:fixed; */
@@ -78,18 +85,5 @@
     align-items:center;
     justify-content: center;
   }
-      .tabulator{
-        font-size:2vh;
-        max-width: 90%;
-      }
-          .tabulator-header{
-            font-size:large;
-          }
-  
-          .tabulator-row{
-            background:rgb(133, 89, 133);
-          }
-              .tabulator-row-even{
-                background:blue;
-              }
+
         
