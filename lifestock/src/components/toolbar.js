@@ -5,5 +5,4 @@ export const Toolbar = () => (
     <div className="toolbar">
         TOOLBAR
     </div>
-
 )

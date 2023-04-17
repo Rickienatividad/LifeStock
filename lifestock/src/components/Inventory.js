@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import "react-tabulator/css/tabulator.css";
 import { ReactTabulator } from "react-tabulator";
-import "../style/field.css";
+import "./field.css";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
-import { Modal } from "../components/Modal";
+import { Modal } from "./Modal";
 
 function Field() {
   const jwt = localStorage.getItem("jwt");
@@ -33,12 +33,6 @@ function Field() {
     setIsInputVisible(false);
   };
 
-  //toggles boolean vs integer container visibility
-  const [isVisible, setIsVisible] = useState(true);
-
-  const toggleDiv = () => {
-    setIsVisible(!isVisible);
-  }
   //Submits data for Message
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -210,41 +204,34 @@ function Field() {
       <h4 className="welcome">Welcome, {username.toUpperCase()}</h4>
       <header className="App-header">
         <div className="container">
-        
-      
-      {isVisible ? 
-                <div className="boolean_container">
-                <ReactTabulator
-                  maxheight={"100%"}
-                  maxwidth={"75%"}
-                  data={data}
-                  columns={columns}
-                  layout={"fitDataFill"}
-                  layoutColumnsOnNewData={"true"}
-                  responsiveLayout={"collapse"}
-                  textDirection={"rtl"}
-                />
-                </div>
-                : 
-                  <div className="integer_container">
-                  <ReactTabulator
-                    maxheight={"100%"}
-                    maxwidth={"75%"}
-                    data={itemData}
-                    columns={itemColumns}
-                    layout={"fitDataFill"}
-                    layoutColumnsOnNewData={"true"}
-                    responsiveLayout={"collapse"}
-                    textDirection={"rtl"}
-                  />
-          
-                </div>}
-      
-
- 
+          <ReactTabulator
+            maxheight={"100%"}
+            maxwidth={"75%"}
+            data={data}
+            columns={columns}
+            layout={"fitDataFill"}
+            layoutColumnsOnNewData={"true"}
+            responsiveLayout={"collapse"}
+            textDirection={"rtl"}
+          />
+          <ReactTabulator
+            maxheight={"100%"}
+            maxwidth={"75%"}
+            data={itemData}
+            columns={itemColumns}
+            layout={"fitDataFill"}
+            layoutColumnsOnNewData={"true"}
+            responsiveLayout={"collapse"}
+            textDirection={"rtl"}
+          />
         </div>
         <div className="container2">
-          
+          <button type="button" onClick={handleChecklist}>
+            Reset Rig {userRig} Checklist
+          </button>
+          <button type="button" onClick={showMessages}>
+            Send A Message
+          </button>
           <Modal show={isInputVisible} onClose={hideMessages}>
             <form onSubmit={handleSubmit}>
               <input
@@ -275,147 +262,14 @@ function Field() {
                 rows="5"
                 name="content"
               ></textarea>
-              
               <button type="submit">Submit</button>
             </form>
           </Modal>
         </div>
-        <div className="bottom-Bar">
-        <button className="field_button" type="button" onClick={handleChecklist}> Reset Rig {userRig} Checklist</button>
-        <button className="field_button" type="button" onClick={showMessages}>Send A Message</button>
-        <button className="field_button" onClick={toggleDiv}>Toggle</button>
-          </div>
+        <div className="bottom-Bar">Field Tech Portal</div>
       </header>
     </div>
   );
 }
 
 export default Field;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, { useState, useEffect } from 'react';
-// import { Toolbar } from '../components/toolbar.js'
-// import Tabulator from 'react-tabulator';
-// import "tabulator-tables/dist/css/tabulator.min.css";
-// import '../style/field.css';
-// import IntInventory from "../components/int_inventory.js"
-// import BooInventory from "../components/boo_inventory.js"
-
-    // export const Field = () => {
-    //     const [table, setTable] = useState(null);
-    //     const [isInt, setIsInt] = useState(true);
-    
-    //     useEffect(() => {
-        
-    //     const table = new Tabulator("#tabulator-table", {
-    //         layout: "fitDataFill", 
-    //         columns: [ 
-    //             { title: "ID", field: "id" }, 
-    //             { title: "Name", field: "name" },
-    //             { title: "Age", field: "age" }, 
-    //         ],
-    //         data: [], 
-    //         placeholder: "No data available",
-    //         });
-    //     setTable(table);
-    
-        
-    //     return () => {
-    //         if (table) {
-    //         table.destroy();
-    //         }
-    //     };
-    //     }, []);
-    
-    //     const handleButtonClick = () => {
-        
-    //     setIsInt(!isInt);
-    //     const inventoryData = isInt ? IntInventory : BooInventory;
-    //         if (table) {
-    //             table.setData(inventoryData);
-    //         }
-    //     };
-    
-    //     return (
-    //     <div className="Field">
-    //         <div className="FieldContainer">
-    //             <div className="tabContainer">
-    //             <div id="tabulator-table" />
-                
-    //             <button onClick={handleButtonClick}>Toggle Inventory</button>
-    //             </div>
-    //         </div>
-    //         <Toolbar />
-    //     </div>
-    //     );
-    // };
-  
- 
-
-
-
-
-
-// export function Field(props){
-//     const columns = [props.columns];
-
-//   // Update table data callback function
-//   const handleUpdateData = (newData) => {
-//     props.updateData(newData);
-//   }
-//     return(
-//         <div className="Field">
-//             <div className="FieldContainer">
-//                 <div className="tabContainer">
-//                 <ReactTabulator
-//                     maxheight={"70vh"}
-//                     maxwidth={"80vw"}
-//                     data={props.data}
-//                     columns={columns}
-//                     layout={"fitDataFill"}
-//                     layoutColumnsOnNewData={"true"}
-//                     responsiveLayout={"collapse"}
-//                     textDirection={"rtl"}
-//                 />
-//                 </div>
-//             </div>
-//         <Toolbar onUpdateData={handleUpdateData}/>
-//         </div>
-//     )
-// }
-

@@ -1,0 +1,18 @@
+@import "tabulator-tables/dist/css/tabulator.min.css";
+
+.tabulator{
+    font-size:2vh;
+    max-width:100%;
+    max-height:100%;
+  }
+      .tabulator-header{
+        background-color:blue;
+        
+      }
+
+      .tabulator-row{
+        background:rgb(255, 255, 255);
+      }
+          .tabulator-row-even{
+            background:rgb(0, 0, 0);
+          }
