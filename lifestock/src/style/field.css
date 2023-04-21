@@ -34,14 +34,12 @@
     background-color:rgb(83, 37, 126);
     align-items: center;
   }
-  .container2 {
-    /* position:fixed; */
-    height:40vh;
-    width:100vw;
-    background-color:rgb(83, 37, 126);
-  }
+    .boolean_container{
+      height:100%;
+    }
+      /* Reference Tabulator.css */
 
-  form {
+      form {
     width: 45vw;
     margin: auto;
     background: #fff;

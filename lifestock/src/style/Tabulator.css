@@ -3,7 +3,10 @@
 .tabulator{
     height:70vh;
     font-size:2vh;
-    max-width: 100%;
+    ;
+  }
+  .tabulator-tableholder{
+    width:500px;
   }
       .tabulator-header{
         font-size:large;

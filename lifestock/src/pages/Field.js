@@ -1,45 +1,22 @@
-import { useState, useEffect } from "react";
-import "react-tabulator/css/tabulator.css";
+import { useState } from "react";
 import { ReactTabulator } from "react-tabulator";
-import "../style/field.css";
-import jwt_decode from "jwt-decode";
-import axios from "axios";
+import "react-tabulator/css/tabulator.css";
 import { Modal } from "../components/Modal";
+import { BooInventory } from "../components/boo_inventory";
+import axios from "axios";
+import jwt_decode from "jwt-decode";
 
 function Field() {
   const jwt = localStorage.getItem("jwt");
-
-  // for extracting user_id
   const decoded = jwt_decode(jwt);
 
-  var date = new Date();
-
-  // Modifies date format to be compatible with Message form date input field
-  var currentDateTime = new Date(
-    date.getTime() - date.getTimezoneOffset() * 60000
-  )
-    .toISOString()
-    .replace(/.\d+Z$/g, "")
-    .split("T")
-    .join("T");
-
-  //toggles Message draft area
   const [isInputVisible, setIsInputVisible] = useState(false);
-
-  const showMessages = () => {
-    setIsInputVisible(true);
-  };
-  const hideMessages = () => {
-    setIsInputVisible(false);
-  };
-
-  //toggles boolean vs integer container visibility
   const [isVisible, setIsVisible] = useState(true);
 
   const toggleDiv = () => {
     setIsVisible(!isVisible);
-  }
-  //Submits data for Message
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
@@ -55,240 +32,93 @@ function Field() {
       });
   };
 
-  // Find Rig User is On
-  const [username, setUsername] = useState("");
-  const handleRig = () => {
-    axios
-      .get(`http://localhost:3000/users/${decoded.user_id}.json`)
-      .then((response) => {
-        localStorage.setItem("rig", response.data.rig_id);
-        setUsername(response.data.first_name);
-      });
-  };
-
-  useEffect(handleRig);
-
-  const userRig = localStorage.getItem("rig");
-
-  // Retrieving booleanChecklist for this Rig/User
-
-  const [booleanChecklist, setBooleanChecklist] = useState({});
   const handleChecklist = () => {
-    setBooleanChecklist("");
-    axios
-      .get(`http://localhost:3000/boolean_checklists/${userRig}.json`)
-      .then((response) => {
-        console.log(response.data);
-        setBooleanChecklist({ ...response.data });
-      });
+    console.log("Checklist reset!");
   };
-  useEffect(handleChecklist, []);
 
-  // Retrieving itemChecklist for this Rig/User
-
-  const [itemChecklist, setItemChecklist] = useState({});
-  const handleItemChecklist = () => {
-    setItemChecklist("");
-    axios
-      .get(`http://localhost:3000/item_checklists/${userRig}.json`)
-      .then((response) => {
-        console.log(response.data);
-        setItemChecklist({ ...response.data });
-      });
+  const showMessages = () => {
+    setIsInputVisible(true);
   };
-  useEffect(handleItemChecklist, []);
 
-  //Tabulator
+  const hideMessages = () => {
+    setIsInputVisible(false);
+  };
 
-  const columns = [
-    { title: "Item", field: "item", width: 300, responsive: 0 },
-    {
-      title: "Is Done",
-      field: "is_done",
-      editor: "tickCross",
-      editable: true,
-      editorParams: {
-        trueValue: true,
-        falseValue: false,
-        tristate: false,
-        elementAttributes: {
-          maxlength: "10", //set the maximum character length of the input element to 10 characters
-        },
-      },
-      widthGrow: 1,
-      responsive: 0,
-    },
-  ];
+  const date = new Date();
+  const currentDateTime = new Date(
+    date.getTime() - date.getTimezoneOffset() * 60000
+  )
+    .toISOString()
+    .replace(/.\d+Z$/g, "")
+    .split("T")
+    .join("T");
 
-  var data = [
-    {
-      id: 1,
-      item: `${Object.keys(booleanChecklist)[1]}`,
-      is_done: `${Object.values(booleanChecklist)[1]}`,
-    },
-    {
-      id: 2,
-      item: `${Object.keys(booleanChecklist)[4]}`,
-      is_done: `${Object.values(booleanChecklist)[4]}`,
-    },
-    {
-      id: 3,
-      item: `${Object.keys(booleanChecklist)[3]}`,
-      is_done: `${Object.values(booleanChecklist)[3]}`,
-    },
-  ];
-
-  // item tabulator
-  const itemColumns = [
-    {
-      title: "Name",
-      field: "name",
-      editable: false,
-      editorParams: {
-        trueValue: true,
-        falseValue: false,
-        tristate: false,
-        elementAttributes: {
-          maxlength: "10", //set the maximum character length of the input element to 10 characters
-        },
-      },
-      widthGrow: 1,
-      responsive: 0,
-    },
-    {
-      title: "Minimum",
-      field: "minimum",
-      editable: false,
-      editorParams: {
-        trueValue: true,
-        falseValue: false,
-        tristate: false,
-        elementAttributes: {
-          maxlength: "10", //set the maximum character length of the input element to 10 characters
-        },
-      },
-      widthGrow: 1,
-      responsive: 0,
-    },
-    {
-      title: "Actual",
-      field: "actual",
-      editable: true,
-      editor: "number",
-      editorParams: {
-        elementAttributes: {
-          maxlength: "3", //set the maximum character length of the input element to 10 characters
-        },
-      },
-      widthGrow: 1,
-      responsive: 0,
-    },
-  ];
-
-  var itemData = [
-    {
-      id: 1,
-      name: `${Object.keys(itemChecklist)[1]}`,
-      minimum: `${Object.values(itemChecklist)[1]}`,
-      actual: `${Object.values(itemChecklist)[2]}`,
-    },
-    {
-      id: 2,
-      name: `${Object.keys(itemChecklist)[3]}`,
-      minimum: `${Object.values(itemChecklist)[3]}`,
-      actual: `${Object.values(itemChecklist)[4]}`,
-    },
-    {
-      id: 3,
-      name: `${Object.keys(itemChecklist)[5]}`,
-      minimum: `${Object.values(itemChecklist)[5]}`,
-      actual: `${Object.values(itemChecklist)[6]}`,
-    },
-  ];
   return (
     <div className="App">
-      
-      
-        <div className="field_container">
-        <div className="welcome">Welcome, {username.toUpperCase()}</div>
-      
-      {isVisible ? 
-                <div className="boolean_container">
-                <ReactTabulator
-                  
-                  data={data}
-                  columns={columns}
-                  layout={"fitDataFill"}
-                  layoutColumnsOnNewData={"true"}
-                  responsiveLayout={"collapse"}
-                  textDirection={"rtl"}
-                />
-                </div>
-                : 
-                  <div className="integer_container">
-                  <ReactTabulator
-                  
-                    data={itemData}
-                    columns={itemColumns}
-                    layout={"fitDataFill"}
-                    layoutColumnsOnNewData={"true"}
-                    responsiveLayout={"collapse"}
-                    textDirection={"rtl"}
-                  />
-          
-                </div>}
-      
-
- 
-        </div>
-        
-          
-          <Modal show={isInputVisible} onClose={hideMessages}>
-            <form onSubmit={handleSubmit}>
-              <input
-                type="hidden"
-                name="user_id"
-                defaultValue={decoded.user_id}
-              ></input>
-              <input
-                type="hidden"
-                name="date"
-                defaultValue={currentDateTime}
-              ></input>
-              <div>Shift:</div>
-              <div className="flex-shifts">
-                <div>
-                  <input type="radio" name="shift" value="first"></input>
-                  <label>First</label>
-                </div>
-                <div>
-                  <input type="radio" name="shift" value="second"></input>
-                  <label>Second</label>
-                </div>
-              </div>
-              <div>Message:</div>
-              <textarea
-                type="textarea"
-                cols="25"
-                rows="5"
-                name="content"
-              ></textarea>
-              
-              <button type="submit">Submit</button>
-            </form>
-          </Modal>
-        
-        <div className="bottom-Bar">
-        <button className="field_button" type="button" onClick={handleChecklist}> Reset Rig {userRig} Checklist</button>
-        <button className="field_button" type="button" onClick={showMessages}>Send A Message</button>
-        <button className="field_button" onClick={toggleDiv}>Toggle</button>
+      <div className="field_container">
+        {isVisible ? (
+          <div className="boolean_container">
+            <BooInventory />
           </div>
-    
+        ) : (
+          <div className="integer_container">
+            <BooInventory />
+          </div>
+        )}
+      </div>
+
+      <Modal show={isInputVisible} onClose={hideMessages}>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="hidden"
+            name="user_id"
+            defaultValue={decoded.user_id}
+          />
+          <input type="hidden" name="date" defaultValue={currentDateTime} />
+          <div>Shift:</div>
+          <div className="flex-shifts">
+            <div>
+              <input type="radio" name="shift" value="first" />
+              <label>First</label>
+            </div>
+            <div>
+              <input type="radio" name="shift" value="second" />
+              <label>Second</label>
+            </div>
+          </div>
+          <div>Message:</div>
+          <textarea
+            type="textarea"
+            cols="25"
+            rows="5"
+            name="content"
+          ></textarea>
+
+          <button type="submit">Submit</button>
+        </form>
+      </Modal>
+
+      <div className="bottom-Bar">
+        <button
+          className="field_button"
+          type="button"
+          onClick={handleChecklist}
+        >
+          Reset Rig Checklist
+        </button>
+        <button className="field_button" type="button" onClick={showMessages}>
+          Send A Message
+        </button>
+        <button className="field_button" onClick={toggleDiv}>
+          Toggle
+        </button>
+      </div>
     </div>
   );
 }
 
 export default Field;
+
 
 
 
