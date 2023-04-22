@@ -25,14 +25,21 @@ export function Login() {
       });
   };
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>Email</label>
-        <input type="email" name="email"></input>
-        <label>Password</label>
-        <input type="password" name="password"></input>
-        <button type="submit">Submit</button>
+    <div className="login_container">
+      <div className="login_form_container">
+      <form className="login_form" onSubmit={handleSubmit}>
+        <label>
+        <input className="login_form_email_input" type="email" placeholder="Email " name="email"></input>
+        </label>
+        <label>
+        <input className="login_form_password_input" type="password" placeholder="Password" name="password"></input>
+        </label>
+        <button className="login_submit" type="submit">Submit</button>
       </form>
+      </div>
+      <div className="login_options1"></div>
+      <div className="login_options2"></div>
+      <div className="login_options3"></div>
     </div>
   );
 }

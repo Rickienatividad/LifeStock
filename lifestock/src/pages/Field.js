@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ReactTabulator } from "react-tabulator";
+
 import "react-tabulator/css/tabulator.css";
 import { Modal } from "../components/Modal";
 import { BooInventory } from "../components/boo_inventory";

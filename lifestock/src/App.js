@@ -9,7 +9,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <main className="App">
-      <div></div>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />

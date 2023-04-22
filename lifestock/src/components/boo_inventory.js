@@ -3,7 +3,7 @@ import ReactTabulator from 'react-tabulator';
 import axios from 'axios';
 import Rigs from './Rigs';
 
-const BooInventory = () => {
+export function BooInventory(){
   const { userRig, username } = Rigs();
   const [booleanChecklist, setBooleanChecklist] = useState({});
 
@@ -54,7 +54,7 @@ const BooInventory = () => {
 }
 
 
-export default BooInventory;
+
 
 
 

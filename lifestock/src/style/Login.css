@@ -1,14 +1,141 @@
-form {
-    margin-top: 1.5rem;
-    max-width: 16rem;
+.login_container{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  width:100vw;
+  background-color:rgb(26, 111, 57);
+}
+.login_form_container{
+  position:absolute;
+  border-radius:50% 50% 50% 50%;
+  height:60vw;
+  width:60vw;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  border: 3px solid rgba(188, 213, 88, 0.5);
+  box-shadow:15px solid #7092bf;
+  background-color:rgb(193, 171, 200);
+  
+  z-index:1;
+
+}
+
+.login_options1{
+  background-image:url('../assets/fire_truck.jpg');
+  background-repeat:no-repeat;
+  background-size:500px;
+  width:100vw;
+  height:95vw;
+  clip-path: polygon(100%, 100% 50px, 100% 100%, 0% calc(100% - 50px));
+  /* position:absolute;
+  top:10%; */
+  background-color:#444;
+  opacity:80%;
+}
+.login_options2{
+  background-image:url('../assets/fire_truck.jpg');
+  background-repeat:no-repeat;
+  background-size:500px;
+  width:100vw;
+  height:95vw;
+  clip-path: polygon(0% 0%, 100% 50px, 100% 100%, 0% calc(100% - 50px));
+  /* position:absolute;
+  top:10%; */
+  background-color:#444;
+  opacity:80%;
+}
+.login_options3{
+  background-image:url('../assets/fire_truck.jpg');
+  background-repeat:no-repeat;
+  background-size:500px;
+  width:100vw;
+  height:95vw;
+  clip-path: polygon(0% 0%, 100% 50px, 100% 100%, 0% calc(100% - 50px));
+  /* position:absolute;
+  top:10%; */
+  background-color:#444;
+  opacity:80%;
+}
+
+
+
+
+
+
+.login_form {
+    /* margin-top: 1.5rem; */
+    /* max-width: 16rem; */
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    color: #fff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    padding: 0;
+    outline:0;
+    height:60vw;
+    width:60vw;
+    border-radius:50% 50% 50% 50%;
+    background-color:transparent;
   }
   
-  input {
-    height: 1.85rem;
+  .login_form_email_input {
+    align-self:center;
+    height: 1rem;
+    font-size:16px;
+    background-color:rgb(255, 255, 255);
     border: 2px solid #444;
-    border-radius: 10px;
+    width:60%;
+    text-transform:uppercase;
+    border: none;
+    border-bottom: 2px solid #D1D1D4;
+    background: none;
+  }
+    .login_form_email_input:active,
+    .login_form_email_input:focus,
+    .login_form_email_input:hover {
+      outline: none;
+      border-bottom-color: #6A679E;
+    }
+
+  .login_form_password_input {
+    align-self:center;
+    font-size:16px;
+    height: 1rem;
+    background-color:rgb(255, 255, 255);
+    border: 2px solid #444;
+    width:60%;
+    text-transform:uppercase;
+    border: none;
+    border-bottom: 2px solid #D1D1D4;
+    background: none;
+  }
+    .login_form_password_input:active,
+    .login_form_password_input:focus,
+    .login_form_password_input:hover {
+      outline: none;
+      border-bottom-color: #6A679E;
+    }
+
+  .login_submit{
+    text-align:center;
+    height:1rem;
+    border-radius:0;
+    padding:0;
+    font-size:smaller;
+  }
+
+  label{
+    display:flex;
+    flex-direction:column;
+    margin-top:5px;
+    padding:0;
   }
   
   button {
-    margin-top: 2rem;
+    width:30%;
+    align-self:center;
+    
   }
