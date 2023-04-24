@@ -1,20 +1,51 @@
+.tabulator {
+  height: 70vh;
+  width: 80vw;
+}
+
+.tabulator-row {
+  
+}
+
+.tabulator-pagination {
+  
+}
+
+.tabulator-footer {
+
+}
+
+.tabulator-tableHolder {
+  max-height: calc(20 * 50px);
+}
+
+.tabulator-col-title {
+  background-color:black;
+  color: #fff;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
 
 
-.tabulator{
-    height:70vh;
-    font-size:2vh;
-    ;
-  }
-  .tabulator-tableholder{
-    width:500px;
-  }
-      .tabulator-header{
-        font-size:large;
-      }
+.tabulator-headers {
+  background-color:black;
+}
 
-      .tabulator-row{
-        background:rgb(133, 89, 133);
-      }
-          .tabulator-row-even{
-            background:blue;
-          }
+.tabulator-row {
+  background-color: rgb(0, 0, 0);
+  color: #fff;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+  height: 24px;
+}
+
+.tabulator-row-even {
+  background-color: grey;
+}
+
+/*Table Header Height*/
+.tabulator-col-content {
+  background-color:black;
+}
+
+.tabulator-col-title {
+  font-size: 1.5em;
+}

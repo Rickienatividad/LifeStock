@@ -152,11 +152,12 @@ function Field() {
       field: "item",
       editable: false,
       editorParams: {
+        resizable:false,
         trueValue: true,
         falseValue: false,
         tristate: false,
         elementAttributes: {
-          maxlength: "10", //set the maximum character length of the input element to 10 characters
+          maxlength: "10",
         },
       },
       widthGrow: 1,
@@ -167,11 +168,12 @@ function Field() {
       field: "minimum",
       editable: false,
       editorParams: {
+        resizable:false,
         trueValue: true,
         falseValue: false,
         tristate: false,
         elementAttributes: {
-          maxlength: "10", //set the maximum character length of the input element to 10 characters
+          maxlength: "10",
         },
       },
       widthGrow: 1,
@@ -183,14 +185,16 @@ function Field() {
       editable: true,
       editor: "number",
       editorParams: {
+        resizable:false,
         elementAttributes: {
-          maxlength: "3", //set the maximum character length of the input element to 10 characters
+          maxlength: "3",
         },
       },
       widthGrow: 1,
       responsive: 0,
     },
   ];
+  
   let array = [];
 
   Object.entries(rigChecklist).map((item) => {
@@ -205,26 +209,17 @@ function Field() {
       <h4 className="welcome">Welcome, {username.toUpperCase()}</h4>
       
         <div className="field_subcontainer">
-          {/* <ReactTabulator
-            maxheight={"100%"}
-            maxwidth={"75%"}
-            data={data}
-            columns={columns}
-            layout={"fitDataFill"}
-            layoutColumnsOnNewData={"true"}
-            responsiveLayout={"collapse"}
-            textDirection={"rtl"}
-          /> */}
-          <ReactTabulator
-            maxheight={"100%"}
-            maxwidth={"75%"}
-            data={itemData}
-            columns={itemColumns}
-            layout={"fitDataFill"}
-            layoutColumnsOnNewData={"true"}
-            responsiveLayout={"collapse"}
-            textDirection={"rtl"}
-          />
+            <ReactTabulator
+                data={itemData}
+                columns={itemColumns}
+                layout={"fitDataFill"}
+                layoutColumnsOnNewData={true}
+                responsiveLayout={"collapse"}
+                textDirection={"rtl"}
+                selectable={false}
+                resizableRows={false}
+                formatter={"textarea"}
+              />
         </div>
         <div className="container2">
           <button type="button" onClick={handleChecklist}>

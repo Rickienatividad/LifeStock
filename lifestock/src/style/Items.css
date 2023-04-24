@@ -1,7 +1,4 @@
-.main {
-    width: 60vw;
-  }
-  
+
   .items_container {
     display: flex;
     justify-content:space-evenly;
@@ -12,7 +9,8 @@
 
   .items_display{
     margin-left:5vw;
-    width:30vw;
+    margin-right:4vw;
+    width:25vw;
     height:30vh;
     color: #fff;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
@@ -23,6 +21,10 @@
   .items_display form{
     width:30vw;
   }
+  .items_display tr{
+    height:20px;
+    box-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
   .items_interface{
     width:30vw;
     height:30vh;
@@ -34,6 +36,10 @@
     border-radius:10px;
     background-color:#444;
     box-shadow: 10px 10px 50px rgb(0, 0, 0);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: center;
   }
   .items_interface h3{
     font-size:.75em;
@@ -56,5 +62,5 @@
   }
   
   table tr {
-    height: 3rem;
+    height: 1.5rem;
   }
