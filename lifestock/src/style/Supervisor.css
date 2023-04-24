@@ -1,26 +1,42 @@
-.wrapper {
-    margin: 1.5rem 0 1rem 0;
-    max-height: 90%;
+.supervisor_container{
+    margin:0;
+    height:100vh;
+    width:100vw;
+    background-image:url('../assets/field_metal.jpg');
   }
   
   .welcome {
-    padding-top: 1.3rem;
+    height:10vh;
+    width:100vw;
   }
   
+.supervisor_columns{
+  width:100vw;
+  height:80vh;
+  display:flex;
+  flex-direction:row;
+}
   .flexTechs {
-    margin: 1.3rem 0 1rem 0;
     display: flex;
+    flex-direction:row;
+    width:40vw;
   }
-  
+  label{
+    width:20vw;
+  }
+    h3{
+      font-size:1em;
+      width:20vw;
+    }
+
   .assign-form {
-    max-height: 18rem;
+    width:20vw;
     background: #444;
     color: #fff;
-    border: 2px solid #444;
   }
   
   .assign-form select {
-    background: blue;
+    background: rgb(0, 0, 0);
     color: #fff;
     width: 85%;
     margin: auto;
@@ -29,31 +45,56 @@
   .rig-button {
     background: #888;
     color: #fff;
-    box-shadow: -2px 5px 5px -2px blue;
     width: 95%;
-    margin: 1.3rem auto 0.8rem auto;
+    
   }
   
   .assignments-container {
-    margin-top:1.40rem;
-    max-height: 18rem;
+    max-height: 80vh;
+    width:20vw;
     color: #fff;
     background: #444;
-    margin-left: 5rem;
-    min-width: 50%;
-    max-width: 53%;
     text-align: center;
   }
   
-  table {
-    padding-left: 2.75rem;
+
+  .column2{
+    background-color:yellow;
+    width:30vw;
+    height:80vh;
   }
-  
-  td {
-    padding: 0.3rem 1rem;
-    background-color: blue;
+  .column3{
+    background-color:green;
+    width:30vw;
+    height:80vh;
   }
-  
+
+
+  .supervisor_buttons{
+    height:10vh;
+    width:100vw;
+    position:absolute;
+    bottom:0;
+    left:0;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   .messages-container {
     color: #444;
   }
@@ -72,3 +113,16 @@
     font-size: large;
   }
   
+  table {
+    width:200px;
+  }
+  th{
+    font-size:.75em;
+   }
+  td {
+    font-size:.5em;
+    background-color: rgb(89, 89, 90);
+  }
+  option{
+    padding:2px;
+  }

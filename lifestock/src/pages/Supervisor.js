@@ -1,7 +1,10 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import "../style/Supervisor.css";
-import { Modal } from "../components/Modal";
+import { Modal } from "../components/Modal.js";
+import { Link } from "react-router-dom";
+import { Items } from "./Items";
+import { Checklists } from "./Checklists"
 
 export function SupervisorView() {
   const [messages, setMessages] = useState([]);
@@ -88,11 +91,9 @@ export function SupervisorView() {
   };
 
   return (
-    <div className="wrapper">
+    <div className="supervisor_container">
       <h2 className="welcome">Welcome to the supervisor portal.</h2>
-      <button type="button" onClick={() => showMessages()}>
-        Open Messages
-      </button>
+
       <Modal show={isMessagesVisible} onClose={hideMessages}>
         <div className="messages-container">
           {messages.map((message) => (
@@ -114,7 +115,7 @@ export function SupervisorView() {
           ))}
         </div>
       </Modal>
-
+      <div className="supervisor_columns">
       <div className="flexTechs">
         <form className="assign-form" onSubmit={handleFieldAssign}>
           <label>Tech:</label>
@@ -139,11 +140,11 @@ export function SupervisorView() {
             <option value="6">Rig 6</option>
             <option value={null}>Unassign</option>
           </select>
-
           <button className="rig-button" type="submit">
             Submit
           </button>
         </form>
+
         <div className="assignments-container">
           <h3>Current Assignments</h3>
           <table className="assignments-table">
@@ -167,6 +168,31 @@ export function SupervisorView() {
             </tbody>
           </table>
         </div>
+      </div>
+      <div className="column2">
+        <Items />
+      </div>
+      <div className="column3">
+        <Checklists />
+      </div>
+      </div>
+      <div className="supervisor_buttons">
+      <button>
+        <Link to={"/items"} style={{ textDecoration: "none", color: "black" }}>
+          Inventory Items
+        </Link>
+      </button>
+      <button type="button" onClick={() => showMessages()}>
+        Open Messages
+      </button>
+      <button>
+        <Link
+          to={"/checklists"}
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          View/Edit Checklists
+        </Link>
+      </button>
       </div>
     </div>
   );

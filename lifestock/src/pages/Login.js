@@ -28,6 +28,8 @@ export function Login() {
     <div className="login_container">
       <div className="login_form_container">
       <form className="login_form" onSubmit={handleSubmit}>
+        <div className="star_of_life"></div>
+        <div className="title"><strong>L</strong>IFESTOCK</div>
         <label>
         <input className="login_form_email_input" type="email" placeholder="Email " name="email"></input>
         </label>
@@ -40,6 +42,10 @@ export function Login() {
       <div className="login_options1"></div>
       <div className="login_options2"></div>
       <div className="login_options3"></div>
+      <div className="login_options4"></div>
+      <div className="login_options5"></div>
+      <div className="login_options6"></div>
+      <div className="login_overlay"></div>
     </div>
   );
 }

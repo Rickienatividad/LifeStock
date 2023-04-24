@@ -1,0 +1,49 @@
+.main {
+    width: 100vw;
+  }
+  
+  .flex-container {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+
+  .items_container{
+    
+    width:30vw;
+  }
+  .items_display{
+    width:30vw;
+    height:40vh;
+    background-color:blueviolet;
+  }
+  .items_interface{
+    width:30vw;
+    height:40vh;
+    display:flex;
+    flex-direction:column;
+    font-size:1em;
+  }
+  .items_interface h3{
+    font-size:.75em;
+    align-self:center;
+  }
+  .items_label{
+    flex-direction:row;
+    font-size:.5em;
+  }
+  .items_label label{
+    width:10vw;
+  }
+  .items_label input{
+    width:20vw;
+  }
+
+
+  table th {
+    text-align:center;
+  }
+  
+  table tr {
+    height: 3rem;
+  }
