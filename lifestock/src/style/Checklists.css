@@ -1,17 +1,32 @@
 .checklist_container{
-    height:80vh;
-    width:30vw;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: space-evenly;
+    height:60vh;
+    width:100vw;
+}
+.checklist_interface{
+    height:30vh;
+    width:25vw;
+    background-color:#444;
+    border-radius:10px;
+    box-shadow: 10px 10px 50px rgb(0, 0, 0);
+    color: #fff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+
+}
+.checklist_display{
+width:30vw;
+height:40vw;
+background-color:#444444;
+border-radius:10px;
+box-shadow: 10px 10px 50px rgb(0, 0, 0);
+color: #fff;
+text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+
 }
 
-        .checklist_container h6{
-
-        }
-        .checklist_container p{
-            
-        }
-        .checklist_container table{
-            
-        }
-        .checklist_container h6{
-            
-        }
+.checklist_display th{
+    width:200px;
+}

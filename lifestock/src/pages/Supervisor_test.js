@@ -99,7 +99,7 @@ export function SupervisorTest() {
   return (
     <div className="supervisor_container">
         <Sidebar />
-      <h2 className="welcome">Welcome to the supervisor portal.</h2>
+      <h2 className="welcome">LIFESTOCK | Supervisor</h2>
 
       <Modal show={isMessagesVisible} onClose={hideMessages}>
         <div className="messages-container">

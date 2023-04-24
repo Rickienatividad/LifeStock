@@ -18,6 +18,7 @@ export function Checklists() {
 
   return (
     <div className="checklist_container">
+      <div className="checklist_interface">
       <h6>View/Add Current Rig Items: </h6>
       <p>Choose a Rig</p>
       <input
@@ -31,8 +32,9 @@ export function Checklists() {
           <option key={manifest.id}>{manifest.rig_checklist_id}</option>
         ))}
       </datalist>
+      </div>
 
-      
+          <div className="checklist_display">
       <table>
         <thead>
           <tr>
@@ -51,6 +53,7 @@ export function Checklists() {
             ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }
