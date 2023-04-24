@@ -3,12 +3,12 @@
     flex-direction:row;
     align-items:center;
     justify-content: space-evenly;
-    height:60vh;
-    width:100vw;
+    height:30vh;
+    width:50vw;
 }
 .checklist_interface{
     height:30vh;
-    width:25vw;
+    width:30vw;
     background-color:#444;
     border-radius:10px;
     box-shadow: 10px 10px 50px rgb(0, 0, 0);
@@ -17,8 +17,9 @@
 
 }
 .checklist_display{
-width:30vw;
-height:40vw;
+width:25vw;
+height:30vh;
+margin-left:5vw;
 background-color:#444444;
 border-radius:10px;
 box-shadow: 10px 10px 50px rgb(0, 0, 0);

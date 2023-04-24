@@ -1,19 +1,19 @@
 .main {
-    width: 100vw;
+    width: 60vw;
   }
   
   .items_container {
     display: flex;
     justify-content:space-evenly;
     flex-direction:row;
-    
-    margin-top:10vh;
-    width:100vw;
+    width:50vw;
+    height:30vh;
   }
 
   .items_display{
+    margin-left:5vw;
     width:30vw;
-    height:40vh;
+    height:30vh;
     color: #fff;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
     background-color:#444;
@@ -47,7 +47,7 @@
     width:10vw;
   }
   .items_label input{
-    width:20vw;
+    width:15vw;
   }
 
 

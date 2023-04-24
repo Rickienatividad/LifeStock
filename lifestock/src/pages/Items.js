@@ -25,10 +25,10 @@ export function Items() {
   useEffect(handleItems, []);
 
   return (
-    <div className="main">
+    
       <div className="items_container">
 
-        <form className="items_interface" onSubmit={handleSubmit}>
+        <div className="items_interface" onSubmit={handleSubmit}>
           <h3>Add Items to Inventory</h3>
           <div className="items_label">
             <label>Item Name:</label>
@@ -41,7 +41,7 @@ export function Items() {
           </div>
           <button type="submit">Submit</button>
           
-        </form>
+        </div>
         <table className="items_display">
           <thead>
             <tr>
@@ -59,6 +59,6 @@ export function Items() {
           </tbody>
         </table>
       </div>
-    </div>
+   
   );
 }

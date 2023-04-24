@@ -169,11 +169,13 @@ export function SupervisorView() {
           </table>
         </div>
       </div>
+      <div className="inventory_interface">
       <div className="column2">
         <Items />
       </div>
       <div className="column3">
         <Checklists />
+      </div>
       </div>
       </div>
       <div className="supervisor_buttons">
