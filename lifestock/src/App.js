@@ -7,6 +7,7 @@ import { Protected } from "./Security/Protected";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Items } from "./pages/Items";
 import { Checklists } from "./pages/Checklists";
+import { SupervisorTest } from "./pages/Supervisor_test"
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               </Protected>
             }
           />
+          <Route path="/stest" element={<SupervisorTest />} />
           <Route path="/supervisor" element={<SupervisorView />} />
           <Route path="/items" element={<Items />} />
           <Route path="/checklists" element={<Checklists />} />

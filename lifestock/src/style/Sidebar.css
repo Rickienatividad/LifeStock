@@ -1,0 +1,93 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #f1f1f1;
+    overflow-x: hidden;
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+    width: 50px;
+    color:black;
+    background-image:url('../assets/field_metal.jpg');
+    background-position:right;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-evenly;
+  }
+  
+  .sidebar.open {
+    width: 300px;
+  }
+  
+  .sidebar .toggle-btn {
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    background-color:transparent;
+    padding: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    z-index: 1001;
+  }
+  
+  .sidebar .toggle-icon {
+    font-size: 48px;
+    transition: all 0.3s ease-in-out;
+  }
+  .sidebar .toggle-btn{
+    height:50px;
+    width:50px;
+  }
+  
+  .sidebar .toggle-icon.open {
+    transform: rotate(90deg);
+  }
+  
+ .sidebar-content {
+    position:absolute;
+    left:-200px;
+  }
+  .sidebar-content.open {
+    position:absolute;
+    left:50px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+
+  .sidebar-1{
+    background-image:url('../assets/jim');
+    background-size:contain;
+    position:fixed;
+    top:50px;
+    height:150px;
+    width:150px;
+    background-color:yellow;
+    
+  }
+  .sidebar-2{
+    height:10vh;
+    width:200px;
+    background-color:yellow;
+  }
+  .sidebar-3{
+    height:10vh;
+    width:200px;
+    background-color:yellow;
+  }
+  .sidebar-4{
+    height:10vh;
+    width:200px;
+    background-color:yellow;
+  }
+  .sidebar-5{
+    height:10vh;
+    width:200px;
+    background-color:yellow;
+  }
+
+  
