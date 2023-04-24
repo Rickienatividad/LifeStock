@@ -1,4 +1,6 @@
 @import './App.css';
+
+@media screen and (orientation:portrait){
 .login_container{
   display:flex;
   flex-direction:column;
@@ -203,4 +205,210 @@
     background-color:#444;
     opacity:80%;
   }
+}
+@media screen and (orientation:landscape){
+  .login_container{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    width:100vw;
+    background-color:rgb(0, 0, 0);
+  }
+  .login_form_container{
+    box-sizing: border-box;
+    position:absolute;
+    clip-path:polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%); 
+    height:62vh;
+    width:62vh;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    background-color:rgb(0, 0, 0);
+    z-index:1;
   
+  }
+  
+      /*Transparent Div containing login form inside of center Div design*/
+      .login_form{
+          box-sizing: border-box;
+          position:absolute;
+          display:flex;
+          align-items:center;
+          justify-content: center;
+          color: #fff;
+          text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+          padding: 0;
+          outline:0;
+          margin:0;
+          height:60vh;
+          width:60vh;
+          clip-path:polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%)!important;
+          background-image:url('../assets/metallic3.jpg');
+          background-size:contain;
+          
+        }
+        
+        .star_of_life{
+          background-image:url('../assets/sta.svg');
+          background-size:contain;
+          background-repeat:no-repeat;
+          height:4.5rem;
+          width:4.5rem;
+        }
+        .title{
+          color:white;
+          line-height: 0.5em;;
+          text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+        }
+        .login_form_email_input {
+          align-self:center;
+          height: 1rem;
+          font-size:16px;
+          background-color:rgb(255, 255, 255);
+          border: 2px solid #444;
+          width:6rem;
+          height:1rem;
+          text-transform:uppercase;
+          border: none;
+          border-bottom: 2px solid #D1D1D4;
+          background: white;
+          padding:5px;
+        }
+          .login_form_email_input:active,
+          .login_form_email_input:focus,
+          .login_form_email_input:hover {
+            outline: none;
+            border-bottom-color: #6A679E;
+          }
+  
+        .login_form_password_input {
+          align-self:center;
+          height: 1rem;
+          font-size:16px;
+          background-color:rgb(255, 255, 255);
+          border: 2px solid #444;
+          width:6rem;
+          height:1rem;
+          text-transform:uppercase;
+          border: none;
+          border-bottom: 2px solid #D1D1D4;
+          background: white;
+          padding:5px;
+        }
+          .login_form_password_input:active,
+          .login_form_password_input:focus,
+          .login_form_password_input:hover {
+            outline: none;
+            border-bottom-color: #6A679E;
+          }
+  
+        .login_submit{
+          text-align:center;
+          height:1rem;
+          border-radius:0;
+          padding:0;
+          font-size:smaller;
+        }
+  
+    label{
+      display:flex;
+      flex-direction:column;
+      margin-top:5px;
+      padding:0;
+    }
+    
+    button {
+      width:30%;
+      align-self:center;
+      
+    }
+  
+    .login_overlay{
+      position:absolute;
+      top:0;
+      left:0;
+      height:100vh;
+      width:100vw;
+      background-color:rgba(0,0,0,0.5);
+    }
+    .login_options1{
+      background-image:url('../assets/login_strip1.jpeg');
+      background-repeat:no-repeat;
+      background-size:500px;
+      background-position:center;
+      width:100vw;
+      height:50vh;
+      clip-path: polygon(0% 10%,100% 0%,100% 90%,0% 100%);
+      /* position:absolute;
+      top:10%; */
+      background-color:#444;
+      opacity:80%;
+      border: 5px solid black;
+    }
+    .login_options2{
+      background-image:url('../assets/login_strip3.jpg');
+      background-repeat:no-repeat;
+      background-size:500px;
+      background-position:center;
+      width:100vw;
+      height:50vh;
+      clip-path: polygon(0% 0%, 100% 10%, 100% 100%, 0% 90%);
+      /* position:absolute;
+      top:10%; */
+      background-color:#444;
+      opacity:80%;
+      border: 5px solid black;
+    }
+    .login_options3{
+      background-image:url('../assets/login_strip2.jpg');
+      background-repeat:no-repeat;
+      background-size:500px;
+      background-position:center;
+      width:100vw;
+      height:50vh;
+      clip-path: polygon(0% 10%,100% 0%,100% 90%,0% 100%);
+      /* position:absolute;
+      top:10%; */
+      background-color:#444;
+      opacity:80%;
+    }
+    .login_options4{
+      background-image:url('../assets/login_strip4.jpg');
+      background-repeat:no-repeat;
+      background-size:500px;
+      background-position:center;
+      width:100vw;
+      height:50vh;
+      clip-path: polygon(0% 0%, 100% 10%, 100% 100%, 0% 90%);
+      /* position:absolute;
+      top:10%; */
+      background-color:#444;
+      opacity:80%;
+    }
+    .login_options5{
+      background-image:url('../assets/fire_truck.jpg');
+      background-repeat:no-repeat;
+      background-size:500px;
+      background-position:center;
+      width:100vw;
+      height:50vh;
+      clip-path: polygon(0% 10%,100% 0%,100% 90%,0% 100%);
+      top:10%;
+      background-color:#444;
+      opacity:80%;
+    }
+    .login_options6{
+      background-image:url('../assets/ambulance2.jpg');
+      background-repeat:no-repeat;
+      background-size:500px;
+      background-position:center;
+      width:100vw;
+      height:50vh;
+      clip-path: polygon(0% 0%, 100% 10%, 100% 100%, 0% 90%);
+      top:10%; 
+      background-color:#444;
+      opacity:80%;
+    }
+}
