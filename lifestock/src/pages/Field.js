@@ -49,6 +49,8 @@ function Field() {
       });
   };
 
+  const [isDataLoaded, setIsDataLoaded] = useState(false);
+
   // Find Rig User is On
   const [username, setUsername] = useState("");
   const handleRig = () => {
@@ -57,28 +59,31 @@ function Field() {
       .then((response) => {
         localStorage.setItem("rig", response.data.rig_id);
         setUsername(response.data.first_name);
+        setIsDataLoaded(true); 
       });
   };
 
-  useEffect(handleRig);
+  useEffect(handleRig, []);
 
   const userRig = localStorage.getItem("rig");
 
-  //Retrieving rig_checklist for this Rig/User
-  const [rigChecklist, setRigChecklist] = useState({});
-  const handleChecklist = () => {
-    setRigChecklist("");
-    axios
-      .get(`http://localhost:3000/rig_checklists/${userRig}.json`)
-      .then((response) => {
-        console.log(response.data);
-        setRigChecklist({ ...response.data });
-      });
-  };
-  useEffect(handleChecklist, []);
+   //Retrieving rig_checklist for this Rig/User
+   const [rigChecklist, setRigChecklist] = useState({});
+   const handleChecklist = () => {
+     setRigChecklist("");
+     axios
+       .get(`http://localhost:3000/rig_checklists/${userRig}.json`)
+       .then((response) => {
+         console.log(response.data);
+         setRigChecklist({ ...response.data });
+         setIsDataLoaded(true);
+       });
+   };
+   useEffect(handleChecklist, []);
 
   //Retrieving booleanChecklist for this Rig/User
 
+  //Retrieving booleanChecklist for this Rig/User
   const [booleanChecklist, setBooleanChecklist] = useState({});
   const handleBooleanChecklist = () => {
     setBooleanChecklist("");
@@ -87,6 +92,7 @@ function Field() {
       .then((response) => {
         console.log(response.data);
         setBooleanChecklist({ ...response.data });
+        setIsDataLoaded(true);
       });
   };
   useEffect(handleBooleanChecklist, []);
@@ -209,7 +215,8 @@ function Field() {
       <h4 className="welcome">Welcome, {username.toUpperCase()}</h4>
       
         <div className="field_subcontainer">
-            <ReactTabulator
+            {isDataLoaded && (
+              <ReactTabulator
                 data={itemData}
                 columns={itemColumns}
                 layout={"fitDataFill"}
@@ -220,6 +227,8 @@ function Field() {
                 resizableRows={false}
                 formatter={"textarea"}
               />
+            )
+       }
         </div>
         <div className="container2">
           <button type="button" onClick={handleChecklist}>
