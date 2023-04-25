@@ -54,61 +54,70 @@ export function Checklists() {
   return (
     <div className="checklist_container">
       <div className="checklist_interface">
-      
-      <div className="checklist_interface_title">View/Add Current Rig Items: </div>
+        <div className="checklist_interface_title">
+          View/Add Current Rig Items:
+          <p>Choose a Rig</p>
+          <input
+            type="text"
+            value={searchFilter}
+            onChange={(event) => setSearchFilter(event.target.value)}
+            list="rig_checklist_id"
+          />
+          <datalist id="rig_checklist_id">
+            {manifests.map((manifest) => (
+              <option key={manifest.id}>{manifest.rig_checklist_id}</option>
+            ))}
+          </datalist>
+        </div>
         <div className="add_item">
           <form className="manifest_form" onSubmit={handleSubmit}>
             <label>Add Item to Checklist:</label>
-            
-            <select id="item" name="id" onChangex={itemId}>
+
+            <select id="item" name="id" onChange={itemId}>
               {items.map((item) => (
                 <option key={item.id} name="item_id">
                   {item.name}
                 </option>
               ))}
-            
-
             </select>
-            <label >Item Id</label>
+            {/* <label hidden>Item Id</label> */}
             <input
               type="number"
               name="item_id"
               value={selectedItem}
-              
+              hidden
             ></input>
-            <label >Rig:</label>
+            {/* <label hidden>Rig:</label> */}
             <input
               type="number"
               value={searchFilter}
               name="rig_checklist_id"
-              
+              hidden
             ></input>
             <button type="submit">add to list</button>
           </form>
-          </div>
-          </div>
-          <div className="checklist_display">
-      <table>
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Minimum</th>
-          </tr>
-        </thead>
-        <tbody>
-          {manifests
-            .filter((manifest) => manifest.rig_checklist_id == searchFilter)
-            .map((manifest) => (
-              <tr key={manifest.id}>
-                <td>{manifest.item_name}</td>
-                <td>{manifest.item_minimum}</td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
+        </div>
       </div>
-    
-    
+      <div className="checklist_display">
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Minimum</th>
+            </tr>
+          </thead>
+          <tbody>
+            {manifests
+              .filter((manifest) => manifest.rig_checklist_id == searchFilter)
+              .map((manifest) => (
+                <tr key={manifest.id}>
+                  <td>{manifest.item_name}</td>
+                  <td>{manifest.item_minimum}</td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
