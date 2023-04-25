@@ -60,7 +60,7 @@ export function Checklists() {
           <form className="manifest_form" onSubmit={handleSubmit}>
             <label>Add Item to Checklist:</label>
             
-            <select id="item" name="id" onChange={itemId}>
+            <select id="item" name="id" onChangex={itemId}>
               {items.map((item) => (
                 <option key={item.id} name="item_id">
                   {item.name}
