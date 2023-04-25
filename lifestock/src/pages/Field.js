@@ -60,7 +60,7 @@ function Field() {
       });
   };
 
-  useEffect(handleRig);
+  useEffect(handleRig, []);
 
   const userRig = localStorage.getItem("rig");
 
@@ -75,7 +75,7 @@ function Field() {
         setRigChecklist({ ...response.data });
       });
   };
-  useEffect(handleChecklist, []);
+  useEffect(handleChecklist, [username]);
 
   //Retrieving booleanChecklist for this Rig/User
 
@@ -90,20 +90,6 @@ function Field() {
       });
   };
   useEffect(handleBooleanChecklist, []);
-
-  // Retrieving itemChecklist for this Rig/User
-
-  // const [itemChecklist, setItemChecklist] = useState({});
-  // const handleItemChecklist = () => {
-  //   setItemChecklist("");
-  //   axios
-  //     .get(`http://localhost:3000/item_checklists/${userRig}.json`)
-  //     .then((response) => {
-  //       console.log(response.data);
-  //       setItemChecklist({ ...response.data });
-  //     });
-  // };
-  // useEffect(handleItemChecklist, []);
 
   //Tabulator;
 
@@ -152,7 +138,7 @@ function Field() {
       field: "item",
       editable: false,
       editorParams: {
-        resizable:false,
+        resizable: false,
         trueValue: true,
         falseValue: false,
         tristate: false,
@@ -168,7 +154,7 @@ function Field() {
       field: "minimum",
       editable: false,
       editorParams: {
-        resizable:false,
+        resizable: false,
         trueValue: true,
         falseValue: false,
         tristate: false,
@@ -185,7 +171,7 @@ function Field() {
       editable: true,
       editor: "number",
       editorParams: {
-        resizable:false,
+        resizable: false,
         elementAttributes: {
           maxlength: "3",
         },
@@ -194,7 +180,7 @@ function Field() {
       responsive: 0,
     },
   ];
-  
+
   let array = [];
 
   Object.entries(rigChecklist).map((item) => {
@@ -206,20 +192,20 @@ function Field() {
   return (
     <div className="App">
       <div className="field_container">
-      <h4 className="welcome">Welcome, {username.toUpperCase()}</h4>
-      
+        <h4 className="welcome">Welcome, {username.toUpperCase()}</h4>
+
         <div className="field_subcontainer">
-            <ReactTabulator
-                data={itemData}
-                columns={itemColumns}
-                layout={"fitDataFill"}
-                layoutColumnsOnNewData={true}
-                responsiveLayout={"collapse"}
-                textDirection={"rtl"}
-                selectable={false}
-                resizableRows={false}
-                formatter={"textarea"}
-              />
+          <ReactTabulator
+            data={itemData}
+            columns={itemColumns}
+            layout={"fitDataFill"}
+            layoutColumnsOnNewData={true}
+            responsiveLayout={"collapse"}
+            textDirection={"rtl"}
+            selectable={false}
+            resizableRows={false}
+            formatter={"textarea"}
+          />
         </div>
         <div className="container2">
           <button type="button" onClick={handleChecklist}>
@@ -263,7 +249,6 @@ function Field() {
           </Modal>
         </div>
         <div className="bottom-Bar">Field Tech Portal</div>
-      
       </div>
     </div>
   );
