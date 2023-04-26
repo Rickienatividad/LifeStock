@@ -37,11 +37,11 @@
     }
       /* Reference Tabulator.css */
 
-  form {
+  /* form {
     width: 45vw;
     background: #fff;
     color: #444;
-  }
+  } */
   
   
   .bottom-Bar {
@@ -76,9 +76,9 @@
     height: 5rem;
   }
   
-  .flex-container {
+  /* .flex-container {
     display:flex;
     flex-direction: row;
   }
 
-        
+         */

@@ -26,10 +26,11 @@ export function Items() {
 
   return (
     <div className="items_container">
-      <h3>Add Items to Inventory</h3>
-      <div className="flex-container">
-        <div>
-          <form className="items_interface" onSubmit={handleSubmit}>
+      
+      
+          <div className="items_interface" id="card">
+          <form onSubmit={handleSubmit}>
+          <h3>ITEMS → INVENTORY:</h3>
             <label className="items_label">Item Name:</label>
             <input type="text" name="name"></input>
             <label className="items_label">Minimum Quantity:</label>
@@ -37,8 +38,9 @@ export function Items() {
 
             <button type="submit">Submit</button>
           </form>
-        </div>
-        <table className="items_display">
+          </div>
+        <div className="items_display" id="card">
+        <table>
           <thead>
             <tr>
               <th>Item</th>
@@ -54,7 +56,7 @@ export function Items() {
             ))}
           </tbody>
         </table>
-      </div>
+        </div>
     </div>
   );
 }

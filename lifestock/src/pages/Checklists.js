@@ -53,7 +53,7 @@ export function Checklists() {
   };
   return (
     <div className="checklist_container">
-      <div className="checklist_interface">
+      <div className="checklist_interface" id="card">
         <div className="checklist_interface_title">ITEMS → RIG:</div>
         <p>Choose a Rig</p>
         <input
@@ -68,7 +68,7 @@ export function Checklists() {
           ))}
         </select> */}
 
-        <div className="add_item">
+        {/* <div className="add_item"> */}
           <form className="manifest_form" onSubmit={handleSubmit}>
             <label>Add Item to Checklist:</label>
 
@@ -95,9 +95,9 @@ export function Checklists() {
             ></input>
             <button type="submit">add to list</button>
           </form>
-        </div>
+        {/* </div> */}
       </div>
-      <div className="checklist_display">
+      <div className="checklist_display" id="card">
         <table>
           <thead>
             <tr>
