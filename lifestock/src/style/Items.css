@@ -1,6 +1,7 @@
 
   .items_container {
-    display:flex;
+    /* display: flex; */
+    justify-content:space-evenly;
     flex-direction:row;
     align-items:center;
     justify-content: space-around;

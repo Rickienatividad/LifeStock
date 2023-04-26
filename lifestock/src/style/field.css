@@ -76,5 +76,9 @@
     height: 5rem;
   }
   
+  .flex-container {
+    display:flex;
+    flex-direction: row;
+  }
 
         

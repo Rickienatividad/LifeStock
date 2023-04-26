@@ -54,22 +54,20 @@ export function Checklists() {
   return (
     <div className="checklist_container">
       <div className="checklist_interface">
-        <div className="checklist_interface_title">
-          ITEMS → RIG:
-          </div>
-          <p>Choose a Rig</p>
-          <input
-            type="text"
-            value={searchFilter}
-            onChange={(event) => setSearchFilter(event.target.value)}
-            list="rig_checklist_id"
-          />
-          <option id="rig_checklist_id">
-            {manifests.map((manifest) => (
-              <option key={manifest.id}>{manifest.rig_checklist_id}</option>
-            ))}
-          </option>
-        
+        <div className="checklist_interface_title">ITEMS → RIG:</div>
+        <p>Choose a Rig</p>
+        <input
+          type="text"
+          value={searchFilter}
+          onChange={(event) => setSearchFilter(event.target.value)}
+          list="rig_checklist_id"
+        />
+        {/* <select id="rig_checklist_id">
+          {manifests.map((manifest) => (
+            <option key={manifest.id}>{manifest.rig_checklist_id}</option>
+          ))}
+        </select> */}
+
         <div className="add_item">
           <form className="manifest_form" onSubmit={handleSubmit}>
             <label>Add Item to Checklist:</label>

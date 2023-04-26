@@ -2,6 +2,10 @@ import axios from "axios";
 import "../style/Login.css";
 
 export function Login() {
+  const clearUser = () => {
+    localStorage.removeItem("jwt");
+    localStorage.removeItem("rig");
+  };
   const handleSubmit = (event) => {
     //overrides the submit button normal behavior in the form
     event.preventDefault();
@@ -27,17 +31,32 @@ export function Login() {
   return (
     <div className="login_container">
       <div className="login_form_container">
-      <form className="login_form" onSubmit={handleSubmit}>
-        <div className="star_of_life"></div>
-        <div className="title"><strong>L</strong>IFESTOCK</div>
-        <label>
-        <input className="login_form_email_input" type="email" placeholder="Email " name="email"></input>
-        </label>
-        <label>
-        <input className="login_form_password_input" type="password" placeholder="Password" name="password"></input>
-        </label>
-        <button className="login_submit" type="submit">Submit</button>
-      </form>
+        <form className="login_form" onSubmit={handleSubmit}>
+          <div className="star_of_life"></div>
+          <div className="title">
+            <strong>L</strong>IFESTOCK
+          </div>
+          <label>
+            <input
+              className="login_form_email_input"
+              type="email"
+              placeholder="Email "
+              name="email"
+              onClick={clearUser()}
+            ></input>
+          </label>
+          <label>
+            <input
+              className="login_form_password_input"
+              type="password"
+              placeholder="Password"
+              name="password"
+            ></input>
+          </label>
+          <button className="login_submit" type="submit">
+            Submit
+          </button>
+        </form>
       </div>
       <div className="login_options1"></div>
       <div className="login_options2"></div>

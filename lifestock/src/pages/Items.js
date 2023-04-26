@@ -25,22 +25,18 @@ export function Items() {
   useEffect(handleItems, []);
 
   return (
-    
-      <div className="items_container">
-
-        <div className="items_interface" onSubmit={handleSubmit}>
-          <h3>ITEMS → INVENTORY</h3>
-          <div className="items_label">
-            <label>Item Name:</label>
+    <div className="items_container">
+      <h3>Add Items to Inventory</h3>
+      <div className="flex-container">
+        <div>
+          <form className="items_interface" onSubmit={handleSubmit}>
+            <label className="items_label">Item Name:</label>
             <input type="text" name="name"></input>
-          </div>
-          
-          <div className="items_label">
-            <label>Minimum Quantity:</label>
+            <label className="items_label">Minimum Quantity:</label>
             <input type="number" name="minimum"></input>
-          </div>
-          <button type="submit">Submit</button>
-          
+
+            <button type="submit">Submit</button>
+          </form>
         </div>
         <table className="items_display">
           <thead>
@@ -59,6 +55,6 @@ export function Items() {
           </tbody>
         </table>
       </div>
-   
+    </div>
   );
 }
