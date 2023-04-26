@@ -47,12 +47,9 @@
     background-image: linear-gradient(to bottom right, #444, #2e2e2e, #444, #2e2e2e);
   }
   .items_interface h3{
-    font-size:1em;
+    font-size:.75em;
   }
-  .items_label{
-    flex-direction:row;
-    font-size:.5em;
-  }
+
   .items_label label{
     width:150px;
   }

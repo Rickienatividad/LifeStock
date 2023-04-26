@@ -55,7 +55,7 @@ export function Checklists() {
     <div className="checklist_container">
       <div className="checklist_interface" id="card">
         <div className="checklist_interface_title">ITEMS → RIG:</div>
-        <p>Choose a Rig</p>
+        <label className="card_label">Choose a Rig</label>
         <input
           type="text"
           value={searchFilter}
@@ -70,7 +70,7 @@ export function Checklists() {
 
         {/* <div className="add_item"> */}
           <form className="manifest_form" onSubmit={handleSubmit}>
-            <label>Add Item to Checklist:</label>
+            <label className="card_label">Add Item to Checklist:</label>
 
             <select id="item" name="id" onChange={itemId}>
               {items.map((item) => (

@@ -14,7 +14,7 @@
     flex-direction:column;
     align-items:center;
     justify-content: start;
-    background-image: linear-gradient(to bottom right, #444, #2e2e2e);
+    background-image: linear-gradient(to bottom right, #444, #2e2e2e, #444, #2e2e2e);
 }
 .checklist_display{
 width:250px;
@@ -25,7 +25,7 @@ box-shadow: 10px 10px 50px rgb(0, 0, 0);
 color: #fff;
 text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 font-size:1em;
-background-image: linear-gradient(to bottom right, #444, #2e2e2e);
+background-image: linear-gradient(to bottom right, #444, #2e2e2e, #444, #2e2e2e);
 }
 
 .checklist_display table{
@@ -44,27 +44,26 @@ background-image: linear-gradient(to bottom right, #444, #2e2e2e);
 }
 
 .checklist_interface_title{
-    font-size:1em;
-    
-    margin-bottom:4vh;
-}
-.checklist_interface_title input{
-    width:15vw;
+    font-size:.75em;
+    padding:3%;
 }
 
+
 .manifest_form{
-    font-size:.75em;
+    width:250px;
+    height:200px;
     display:flex;
     flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    width:20vw;
-    height:15vh;
-    background-color:transparent;
-    /* border-radius:10px;
-    box-shadow: 10px 10px 50px rgb(0, 0, 0); */
+    font-size:1em;
     color: #fff;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    background:transparent;
+    
+    
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: start;
 }
 .manifest_form select{
     width:173px;

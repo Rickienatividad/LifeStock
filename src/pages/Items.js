@@ -31,9 +31,9 @@ export function Items() {
           <div className="items_interface" id="card">
           <form onSubmit={handleSubmit}>
           <h3>ITEMS → INVENTORY:</h3>
-            <label className="items_label">Item Name:</label>
+            <label className="card_label">Item Name:</label>
             <input type="text" name="name"></input>
-            <label className="items_label">Minimum Quantity:</label>
+            <label className="card_label">Minimum Quantity:</label>
             <input type="number" name="minimum"></input>
 
             <button type="submit">Submit</button>

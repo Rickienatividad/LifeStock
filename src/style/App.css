@@ -6,7 +6,7 @@
 
 html {
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 22px;
+  font-size: 20px;
   color: #fff;
 }
 
@@ -59,6 +59,10 @@ overflow-x:hidden;
   margin-left:3vw;
   margin-right:3vw;
   margin-bottom:5vh;
+}
+.card_label{
+  flex-direction:row;
+  font-size:.5em;
 }
 form {
   display: flex;
