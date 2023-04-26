@@ -32,6 +32,7 @@
     justify-content: space-evenly;
     width:50vw;
     height:90vh;
+    
    }
   label{
     width:20vw;
@@ -46,9 +47,10 @@
     width:20vw;
     color: #fff;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-    border-radius:10px;
+    border-radius:5px;
     background-color:#444;
     box-shadow: 10px 10px 50px rgb(0, 0, 0);
+    background-image: linear-gradient(to bottom right, #444, #2e2e2e, #444, #2e2e2e);
   }
   
   .assign-form select {
@@ -56,41 +58,51 @@
     color: #fff;
     width: 85%;
     margin: auto;
+    text-transform:uppercase;
   }
   
-  .rig-button {
+ /* .rig-button {
     background: #888;
     color: #fff;
     width: 95%;
     
-  }
+  }  */
   
   .assignments-container {
     height:30vh;
     width:20vw;
     color: #fff;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-    text-align: center;
-    border-radius:10px;
+    Display:flex;
+    flex-direction:column;
+    align-items:center;
+    border-radius:5px;
     background-color:#444;
     box-shadow: 10px 10px 50px rgb(0, 0, 0);
+    background-image: linear-gradient(to bottom right, #444, #2e2e2e);
   }
+    .assignments-container td{
+      background-image:radial-gradient(200% 70% at center 20%, rgba(48,44,45,1) -30%, rgba(50,46,47,1) 49%, rgba(22,18,19,1) 50%, rgba(22,18,19,1) 150%);
+    }
   
   .inventory_interface{
     display:flex;
     flex-direction:column;
+    align-items:center;
+    
     height:90vh;
     width:50vw;
+    
   }
   .column2{
+    display:flex;
+    align-items:top;
     width:50vw;
     height:40vh;
-    display:flex;
-    justify-content:space-evenly;
-    align-items:top;
   }
   .column3{
     display:flex;
+    justify-content:center;
     align-items:top;
     width:50vw;
     height:40vh;
@@ -98,9 +110,17 @@
 
 
   .supervisor_buttons{
+    position:absolute;
+    bottom:0;
+    left:0;
     height:10vh;
     width:100vw;
-    
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+  .supervisor_buttons button{
+    width:15vw;
   }
 
 

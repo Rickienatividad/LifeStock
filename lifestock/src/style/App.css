@@ -5,7 +5,7 @@
 }
 
 html {
-  font-family: 'Nunito', sans-serif;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 22px;
   color: #fff;
 }
@@ -22,8 +22,28 @@ align-items: center;
 height: 100vh;
 overflow-x:hidden;
 }
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
 
-section {
+/* Track */
+::-webkit-scrollbar-track {
+  background: #adadad;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius:10px;
+  background: #444;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2e2e2e;
+}
+
+/* section {
   width: 100%;
   max-width: 420px;
   height: 100vh;
@@ -32,7 +52,7 @@ section {
   justify-content: flex-start;
   padding: 1rem;
   background-color: rgba(0,0,0,0.4);
-}
+} */
 
 
 form {
@@ -40,8 +60,11 @@ form {
   flex-direction: column;
   justify-content: space-evenly;
   padding-bottom: 1rem;
+  text-transform:capitalize;
 }
-
+td{
+  text-transform:Capitalize;
+}
 a, a:visited {
   color: #fff;
 }
@@ -60,10 +83,30 @@ label,
 button {
 margin-top: 0.5rem;
 }
-
 button {
-padding: 0.5rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: #fff;
+  text-transform: uppercase;
+  
+  text-align: center;
+  clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0 50%);
+  background-color: #161213;
+  background-image: radial-gradient(200% 70% at center 20%, rgba(48,44,45,1) -30%, rgba(50,46,47,1) 49%, rgba(22,18,19,1) 50%, rgba(22,18,19,1) 150%);
+  background-repeat: no-repeat;
+  transition: background-position-y ease-in-out 250ms;
 }
+
+button:hover {
+  background-position-y: -50px;
+}
+/* button {
+  background-color:#444;
+  padding: 0.5rem;
+  color: #fff;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+} */
 
 .instructions {
   font-size: 0.75rem;

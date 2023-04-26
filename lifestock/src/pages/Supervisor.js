@@ -182,25 +182,25 @@ export function SupervisorView() {
         </div>
       </div>
       <div className="supervisor_buttons">
-        <button>
+        {/* <button>
           <Link
             to={"/items"}
             style={{ textDecoration: "none", color: "black" }}
           >
             Inventory Items
           </Link>
-        </button>
+        </button> */}
         <button type="button" onClick={() => showMessages()}>
           Open Messages
         </button>
-        <button>
+        {/* <button>
           <Link
             to={"/checklists"}
             style={{ textDecoration: "none", color: "black" }}
           >
             View/Edit Checklists
           </Link>
-        </button>
+        </button> */}
       </div>
     </div>
   );
