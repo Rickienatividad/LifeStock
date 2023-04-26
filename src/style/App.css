@@ -6,7 +6,7 @@
 
 html {
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 22px;
+  font-size: 20px;
   color: #fff;
 }
 
@@ -29,7 +29,7 @@ overflow-x:hidden;
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #adadad;
+  background: #4b4b4b;
 }
 
 /* Handle */
@@ -54,12 +54,21 @@ overflow-x:hidden;
   background-color: rgba(0,0,0,0.4);
 } */
 
-
+#card{
+  margin-top:5vh;
+  margin-left:3vw;
+  margin-right:3vw;
+  margin-bottom:5vh;
+}
+.card_label{
+  flex-direction:row;
+  font-size:.5em;
+}
 form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-evenly;
-  padding-bottom: 1rem;
   text-transform:capitalize;
 }
 td{
@@ -85,11 +94,12 @@ margin-top: 0.5rem;
 }
 button {
   display:flex;
+  width:6rem;
   align-items:center;
   justify-content:center;
   color: #fff;
   text-transform: uppercase;
-  
+  padding: 3px;
   text-align: center;
   clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0 50%);
   background-color: #161213;

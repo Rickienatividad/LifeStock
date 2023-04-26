@@ -117,8 +117,10 @@ export function SupervisorView() {
         </div>
       </Modal>
       <div className="supervisor_columns">
-        <div className="flexTechs">
+        <div className="supervisor_column_1">
           <form className="assign-form" onSubmit={handleFieldAssign}>
+            <div className="assign_tech" id="card">
+
             <label>Tech:</label>
             <select id="id" name="id" size="8">
               {usersInfo.map((container) => (
@@ -131,6 +133,8 @@ export function SupervisorView() {
                 </option>
               ))}
             </select>
+            </div>
+            <div className="assign_rig" id="card">
             <label>Rig:</label>
             <select id="rig_id" name="rig_id" size="6">
               <option value="1">Rig 1</option>
@@ -144,9 +148,12 @@ export function SupervisorView() {
             <button className="rig-button" type="submit">
               Submit
             </button>
+            </div>
           </form>
-
-          <div className="assignments-container">
+          </div>
+          <div className="supervisor_column_2">
+            <div className="placeholder_block" id="card"></div>
+          <div className="assignments-container" id="card">
             <h3>Current Assignments</h3>
             <table className="assignments-table">
               <thead>
@@ -171,14 +178,14 @@ export function SupervisorView() {
               </tbody>
             </table>
           </div>
-        </div>
+          </div>
         <div className="inventory_interface">
-          <div className="column2">
+          
             <Items />
-          </div>
-          <div className="column3">
+          
+          
             <Checklists />
-          </div>
+          
         </div>
       </div>
       <div className="supervisor_buttons">
