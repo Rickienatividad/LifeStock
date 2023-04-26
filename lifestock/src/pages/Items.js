@@ -29,7 +29,7 @@ export function Items() {
       <div className="items_container">
 
         <div className="items_interface" onSubmit={handleSubmit}>
-          <h3>Add Items to Inventory</h3>
+          <h3>ITEMS → INVENTORY</h3>
           <div className="items_label">
             <label>Item Name:</label>
             <input type="text" name="name"></input>

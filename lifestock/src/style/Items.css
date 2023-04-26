@@ -9,7 +9,7 @@
   }
 
   .items_display{
-    width:25vw;
+    width:29vw;
     height:30vh;
     margin-left:5vw;
     margin-right:4vw;
@@ -19,6 +19,8 @@
     color: #fff;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
     font-size:1em;
+    background-image: linear-gradient(to bottom right, #444, #2e2e2e, #444, #2e2e2e);
+    overflow-y:scroll;
   }
   .items_display tbody{
     width:25vw;
@@ -44,11 +46,13 @@
     display:flex;
     flex-direction:column;
     align-items:center;
-    justify-content: center;
+    justify-content: start;
+    background-image: linear-gradient(to bottom right, #444, #2e2e2e, #444, #2e2e2e);
   }
   .items_interface h3{
-    font-size:.75em;
+    font-size:1em;
     align-self:center;
+    margin-bottom:5vh;
   }
   .items_label{
     flex-direction:row;
