@@ -13,7 +13,7 @@ function App() {
   return (
     <main className="App">
       <div></div>
-      <BrowserRouter basename={window.location.pathname || ''}>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route
