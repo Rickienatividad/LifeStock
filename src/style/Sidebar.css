@@ -60,7 +60,7 @@
   
 
   .sidebar-1{
-    background-image:url('../assets/jim');
+    /* background-image:url('../assets/jim'); */
     background-size:contain;
     position:fixed;
     top:50px;
@@ -72,22 +72,25 @@
   .sidebar-2{
     height:10vh;
     width:200px;
-    background-color:yellow;
+    background-color:rgb(135, 159, 120);
+    color:rgb(11, 56, 219);
   }
   .sidebar-3{
     height:10vh;
     width:200px;
-    background-color:yellow;
+    background-color:rgb(135, 159, 120);
   }
   .sidebar-4{
     height:10vh;
     width:200px;
-    background-color:yellow;
+    background-color:rgb(135, 159, 120);
   }
   .sidebar-5{
     height:10vh;
     width:200px;
-    background-color:yellow;
+    background-color:rgb(135, 159, 120);
   }
 
-  
+  .name{
+    padding-top: 1.2rem;
+  }
