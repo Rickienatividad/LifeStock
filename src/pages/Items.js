@@ -6,8 +6,7 @@ export function Items() {
   const [items, setItems] = useState([]);
 
   const deleteItems = (item) => {
-    axios.delete(`http://localhost:3000/items/${item}.json`);
-    handleItems();
+    axios.delete(`http://localhost:3000/items/${item}.json`).then(() => {});
   };
 
   const handleItems = () => {
@@ -27,7 +26,7 @@ export function Items() {
     });
   };
 
-  useEffect(handleItems, [deleteItems]);
+  useEffect(handleItems, []);
 
   return (
     <div className="items_container">
