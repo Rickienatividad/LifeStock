@@ -1,18 +1,20 @@
 import "../style/Items.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { redirect } from "react-router-dom";
 
 export function Items() {
   const [items, setItems] = useState([]);
-
-  const deleteItems = (item) => {
-    axios.delete(`http://localhost:3000/items/${item}.json`).then(() => {});
-  };
 
   const handleItems = () => {
     axios.get("http://localhost:3000/items.json").then((response) => {
       setItems(response.data);
     });
+  };
+
+  const deleteItems = (item) => {
+    axios.delete(`http://localhost:3000/items/${item}.json`);
+    handleItems();
   };
 
   const handleSubmit = (event) => {
