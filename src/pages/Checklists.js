@@ -43,6 +43,7 @@ export function Checklists() {
   const itemId = (event) => {
     let chosenId;
     const chosenItem = event.target.value;
+    console.log(chosenItem);
     for (let item of items) {
       if (item.name === chosenItem) {
         chosenId = item.id;
@@ -69,32 +70,32 @@ export function Checklists() {
         </select> */}
 
         {/* <div className="add_item"> */}
-          <form className="manifest_form" onSubmit={handleSubmit}>
-            <label className="card_label">Add Item to Checklist:</label>
+        <form className="manifest_form" onSubmit={handleSubmit}>
+          <label className="card_label">Add Item to Checklist:</label>
 
-            <select id="item" name="id" onChange={itemId}>
-              {items.map((item) => (
-                <option key={item.id} name="item_id">
-                  {item.name}
-                </option>
-              ))}
-            </select>
-            {/* <label hidden>Item Id</label> */}
-            <input
-              type="number"
-              name="item_id"
-              value={selectedItem}
-              hidden
-            ></input>
-            {/* <label hidden>Rig:</label> */}
-            <input
-              type="number"
-              value={searchFilter}
-              name="rig_checklist_id"
-              hidden
-            ></input>
-            <button type="submit">add to list</button>
-          </form>
+          <select id="item" name="id" onChange={itemId}>
+            {items.map((item) => (
+              <option key={item.id} name="item_id">
+                {item.name}
+              </option>
+            ))}
+          </select>
+          {/* <label hidden>Item Id</label> */}
+          <input
+            type="number"
+            name="item_id"
+            value={selectedItem}
+            hidden
+          ></input>
+          {/* <label hidden>Rig:</label> */}
+          <input
+            type="number"
+            value={searchFilter}
+            name="rig_checklist_id"
+            hidden
+          ></input>
+          <button type="submit">add to list</button>
+        </form>
         {/* </div> */}
       </div>
       <div className="checklist_display" id="card">

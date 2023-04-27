@@ -5,6 +5,7 @@ import "../style/field.css";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 import { Modal } from "../components/Modal.js";
+import Sidebar from "../components/Sidebar";
 
 function Field() {
   const jwt = localStorage.getItem("jwt");
@@ -49,7 +50,6 @@ function Field() {
       });
   };
 
-  
   // Find Rig User is On
   const [username, setUsername] = useState("");
   const handleRig = () => {
@@ -60,6 +60,8 @@ function Field() {
         setUsername(response.data.first_name);
       });
   };
+
+  let userId = decoded.user_id;
 
   useEffect(handleRig, []);
 
@@ -193,7 +195,8 @@ function Field() {
   return (
     <div className="App">
       <div className="field_container">
-        <h4 className="welcome">Welcome, {username.toUpperCase()}</h4>
+        <Sidebar id={userId} username={username} userRig={userRig} />
+        <h4 className="welcome">{Date()}</h4>
 
         <div className="field_subcontainer">
           <ReactTabulator
