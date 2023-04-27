@@ -159,3 +159,11 @@ button:hover {
   margin-bottom: 0.5rem;
 }
 
+.wrapper {
+  overflow: auto;
+}
+
+.sticky {
+  top:0;
+  position: sticky;
+}

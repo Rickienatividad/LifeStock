@@ -102,7 +102,7 @@ export function Checklists() {
         </form>
         {/* </div> */}
       </div>
-      <div className="checklist_display" id="card">
+      <div className="checklist_display wrapper" id="card">
         <table>
           <thead>
             <tr>

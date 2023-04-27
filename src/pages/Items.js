@@ -43,8 +43,8 @@ export function Items() {
         </form>
       </div>
       <div className="items_display" id="card">
-        <table>
-          <thead>
+        <table className="wrapper">
+          <thead className="sticky">
             <tr>
               <th>Item</th>
               <th>Minimum</th>
