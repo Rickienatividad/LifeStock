@@ -208,7 +208,7 @@ function Field() {
             formatter={"textarea"}
           />
         </div>
-        <div className="container2">
+        <div className="field_options">
           <button type="button" onClick={handleChecklist}>
             Reset Rig {userRig} Checklist
           </button>

@@ -26,15 +26,21 @@
   }
   .field_subcontainer{
     display:flex;
+    flex-direction:column;
     align-items:center;
-    justify-content: center;
-    width:80vw;
-    height:80vh;
+    justify-content: start;
+    width:300px;
+    height:400px;
+  }
+  .field_options{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-evenly;
+    align-items:center;
+    height:100px;
+    width:300px;
   }
 
-    .boolean_container{
-      height:100%;
-    }
       /* Reference Tabulator.css */
 
   /* form {

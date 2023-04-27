@@ -10,15 +10,22 @@
   }
   
   .modal-main {
-    position:fixed;
-    background: rgb(194, 171, 241);
-    width: 80%;
-    height: auto;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    padding: 1em;
-    border-radius: 5px;
+    position:absolute;
+    bottom:10%;
+    left:17%;
+    height:200px;
+    width:250px;
+    background-color:#444;
+    border-radius:5px;
+    box-shadow: 10px 10px 50px rgb(0, 0, 0);
+    color: #fff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: center;
+    background-image: linear-gradient(to bottom right, #444, #2e2e2e, #444, #2e2e2e);
+
   }
   
   .modal-main button.close {
