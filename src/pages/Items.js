@@ -1,7 +1,6 @@
 import "../style/Items.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { redirect } from "react-router-dom";
 
 export function Items() {
   const [items, setItems] = useState([]);

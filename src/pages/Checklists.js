@@ -22,6 +22,10 @@ export function Checklists() {
 
   useEffect(handleManifests, []);
 
+  const deleteManifests = (manifest) => {
+    axios.delete(`http://localhost:3000/manifests/${manifest}.json`);
+  };
+
   const [searchFilter, setSearchFilter] = useState("");
 
   const handleSubmit = (event) => {
@@ -103,16 +107,21 @@ export function Checklists() {
           <thead>
             <tr>
               <th>Item</th>
-              <th>Minimum</th>
+              <th>Remove From Rig</th>
             </tr>
           </thead>
           <tbody>
             {manifests
-              .filter((manifest) => manifest.rig_checklist_id == searchFilter)
+              .filter((manifest) => manifest.rig_checklist_id === searchFilter)
               .map((manifest) => (
                 <tr key={manifest.id}>
                   <td>{manifest.item_name}</td>
-                  <td>{manifest.item_minimum}</td>
+                  {/* <td>{manifest.item_minimum}</td> */}
+                  <td>
+                    <button onClick={() => deleteManifests(manifest.id)}>
+                      X
+                    </button>
+                  </td>
                 </tr>
               ))}
           </tbody>
