@@ -112,7 +112,7 @@ export function Checklists() {
           </thead>
           <tbody>
             {manifests
-              .filter((manifest) => manifest.rig_checklist_id === searchFilter)
+              .filter((manifest) => manifest.rig_checklist_id == searchFilter)
               .map((manifest) => (
                 <tr key={manifest.id}>
                   <td>{manifest.item_name}</td>
