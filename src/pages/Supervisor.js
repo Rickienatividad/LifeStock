@@ -5,7 +5,6 @@ import { Modal } from "../components/Modal.js";
 import { Link } from "react-router-dom";
 import { Items } from "./Items";
 import { Checklists } from "./Checklists";
-import Sidebar from "../components/Sidebar";
 
 export function SupervisorView() {
   const [messages, setMessages] = useState([]);
@@ -95,6 +94,7 @@ export function SupervisorView() {
   return (
     <div className="supervisor_container">
       <h2 className="welcome">LIFESTOCK | Supervisor</h2>
+
       <Modal show={isMessagesVisible} onClose={hideMessages}>
         <div className="messages-container">
           {messages.map((message) => (
@@ -120,38 +120,39 @@ export function SupervisorView() {
         <div className="supervisor_column_1">
           <form className="assign-form" onSubmit={handleFieldAssign}>
             <div className="assign_tech" id="card">
-              <label>Tech:</label>
-              <select id="id" name="id" size="8">
-                {usersInfo.map((container) => (
-                  <option
-                    value={container.id}
-                    onClick={selectedUser}
-                    key={container.id}
-                  >
-                    {container.firstName}
-                  </option>
-                ))}
-              </select>
+
+            <label>Tech:</label>
+            <select id="id" name="id" size="8">
+              {usersInfo.map((container) => (
+                <option
+                  value={container.id}
+                  onClick={selectedUser}
+                  key={container.id}
+                >
+                  {container.firstName}
+                </option>
+              ))}
+            </select>
             </div>
             <div className="assign_rig" id="card">
-              <label>Rig:</label>
-              <select id="rig_id" name="rig_id" size="6">
-                <option value="1">Rig 1</option>
-                <option value="2">Rig 2</option>
-                <option value="3">Rig 3</option>
-                <option value="4">Rig 4</option>
-                <option value="5">Rig 5</option>
-                <option value="6">Rig 6</option>
-                <option value={null}>Unassign</option>
-              </select>
-              <button className="rig-button" type="submit">
-                Submit
-              </button>
+            <label>Rig:</label>
+            <select id="rig_id" name="rig_id" size="6">
+              <option value="1">Rig 1</option>
+              <option value="2">Rig 2</option>
+              <option value="3">Rig 3</option>
+              <option value="4">Rig 4</option>
+              <option value="5">Rig 5</option>
+              <option value="6">Rig 6</option>
+              <option value={null}>Unassign</option>
+            </select>
+            <button className="rig-button" type="submit">
+              Submit
+            </button>
             </div>
           </form>
-        </div>
-        <div className="supervisor_column_2">
-          <div className="placeholder_block" id="card"></div>
+          </div>
+          <div className="supervisor_column_2">
+            <div className="placeholder_block" id="card"></div>
           <div className="assignments-container" id="card">
             <h3>Current Assignments</h3>
             <table className="assignments-table">
@@ -177,11 +178,14 @@ export function SupervisorView() {
               </tbody>
             </table>
           </div>
-        </div>
+          </div>
         <div className="inventory_interface">
-          <Items />
-
-          <Checklists />
+          
+            <Items />
+          
+          
+            <Checklists />
+          
         </div>
       </div>
       <div className="supervisor_buttons">
