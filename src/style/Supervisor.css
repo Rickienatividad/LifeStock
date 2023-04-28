@@ -153,6 +153,11 @@
     align-items:center;
   }
 
+  .message {
+    color: rgb(237, 133, 133);
+    border: 1px solid black;
+    margin: 1.2rem;
+  }
 
 
 

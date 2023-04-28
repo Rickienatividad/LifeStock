@@ -9,7 +9,7 @@
     transition: all 0.3s ease-in-out;
     z-index: 1000;
     width: 50px;
-    color:black;
+    color:rgb(168, 53, 53);
     background-image:url('../assets/field_metal.jpg');
     background-position:right;
 
@@ -77,23 +77,23 @@
   .sidebar-2{
     height:10vh;
     width:200px;
-    background-color:rgb(135, 159, 120);
-    color:rgb(11, 56, 219);
+    background-color:rgb(47, 58, 41);
+    color:rgb(215, 35, 19);
   }
   .sidebar-3{
     height:10vh;
     width:200px;
-    background-color:rgb(135, 159, 120);
+    background-color:rgb(47, 58, 41);
   }
   .sidebar-4{
     height:10vh;
     width:200px;
-    background-color:rgb(135, 159, 120);
+    background-color:rgb(47, 58, 41);
   }
   .sidebar-5{
     height:10vh;
     width:200px;
-    background-color:rgb(135, 159, 120);
+    background-color:rgb(47, 58, 41);
   }
 
   .name{
