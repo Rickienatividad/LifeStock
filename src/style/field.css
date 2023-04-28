@@ -8,6 +8,15 @@
 
   .welcome {
     display:hidden;
+    box-shadow:
+    inset 0 0 50px #fff,      /* inner white */
+    inset 20px 0 80px rgb(67, 50, 67),   /* inner left magenta short */
+    inset -20px 0 80px rgb(95, 160, 160),  /* inner right cyan short */
+    inset 20px 0 300px rgb(67, 53, 67),  /* inner left magenta broad */
+    inset -20px 0 300px rgb(10, 26, 26), /* inner right cyan broad */
+    0 0 50px #fff,            /* outer white */
+    -10px 0 80px rgb(62, 20, 62),        /* outer left magenta */
+    10px 0 80px rgb(63, 136, 136);         /* outer right cyan */
   }
   
   

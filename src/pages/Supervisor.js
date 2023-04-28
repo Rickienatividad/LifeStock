@@ -59,7 +59,7 @@ export function SupervisorView() {
   const [rigs, setRigs] = useState([]);
   const handleRigs = () => {
     axios.get("http://localhost:3000/rigs.json").then((response) => {
-      // console.log(response.data);
+      console.log(response.data);
       setRigs(response.data);
     });
   };
