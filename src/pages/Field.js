@@ -94,45 +94,7 @@ function Field() {
   };
   useEffect(handleBooleanChecklist, []);
 
-  //Tabulator;
 
-  // const columns = [
-  //   { title: "Item", field: "item", width: 300, responsive: 0 },
-  //   {
-  //     title: "Is Done",
-  //     field: "is_done",
-  //     editor: "tickCross",
-  //     editable: true,
-  //     editorParams: {
-  //       trueValue: true,
-  //       falseValue: false,
-  //       tristate: false,
-  //       elementAttributes: {
-  //         maxlength: "10", //set the maximum character length of the input element to 10 characters
-  //       },
-  //     },
-  //     widthGrow: 1,
-  //     responsive: 0,
-  //   },
-  // ];
-
-  // var data = [
-  //   {
-  //     id: 1,
-  //     item: `${Object.keys(booleanChecklist)[1]}`,
-  //     is_done: `${Object.values(booleanChecklist)[1]}`,
-  //   },
-  //   {
-  //     id: 2,
-  //     item: `${Object.keys(booleanChecklist)[4]}`,
-  //     is_done: `${Object.values(booleanChecklist)[4]}`,
-  //   },
-  //   {
-  //     id: 3,
-  //     item: `${Object.keys(booleanChecklist)[3]}`,
-  //     is_done: `${Object.values(booleanChecklist)[3]}`,
-  //   },
-  // ];
 
   // item tabulator
   const itemColumns = [
@@ -192,6 +154,28 @@ function Field() {
   });
   let itemData = array;
 
+  //Holds updated table data.
+  const [updatedTableData, setUpdatedTableData] = useState([]);
+  //updates when data changes.
+  const handleDataChange = (newData) => {
+    setTableData(newData);
+    setUpdatedTableData(newData);
+  };
+  //Sends Data and handles response.
+  const sendData = () => {
+    axios
+      .post("http://localhost:3000/", updatedTableData)
+      .then((response) => {
+        console.log(response.data);
+      })
+  };
+ //Calls sendData() on state change.
+  useEffect(() => {
+    sendData();
+  }, [updatedTableData]);
+  
+  
+
   return (
     <div className="App">
       <div className="field_container">
@@ -201,6 +185,7 @@ function Field() {
         <div className="field_subcontainer">
           <ReactTabulator
             data={itemData}
+            dataChanged={handleDataChange}
             columns={itemColumns}
             layout={"fitDataFill"}
             layoutColumnsOnNewData={true}
