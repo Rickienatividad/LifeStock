@@ -1,7 +1,7 @@
 .sidebar {
-    position: fixed;
+    position: absolute;
     top: 0;
-    left: 0;
+    left: calc(100vw-200vw+50px);
     height: 100%;
     background-color: #f1f1f1;
     overflow-x: hidden;
@@ -10,8 +10,7 @@
     z-index: 1000;
     width: 50px;
     color:black;
-    background-image:url('../assets/field_metal.jpg');
-    background-position:right;
+    background:transparent;
 
     display:flex;
     align-items:center;
@@ -19,12 +18,20 @@
   }
   
   .sidebar.open {
-    width: 300px;
+    position: fixed;
+    display:flex;
+    justify-content: start;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background-image:url('../assets/field_metal.jpg');
+    background-position:right;
   }
   
   .sidebar .toggle-btn {
     position: absolute;
-    top: 20px;
+    bottom: 20px;
     right: 0px;
     background-color:transparent;
     padding: 10px;
@@ -48,48 +55,60 @@
     transform: rotate(90deg);
   }
   
- .sidebar-content {
-    position:absolute;
-    left:-200px;
-  }
-  .sidebar-content.open {
-    position:absolute;
-    left:50px;
-    transition: all 0.3s ease-in-out;
-  }
-  
+
+
 
   .sidebar-1{
-    /* background-image:url('../assets/jim'); */
+    display:flex;
     background-size:contain;
-    position:fixed;
-    top:50px;
-    height:150px;
-    width:150px;
-    background-color:yellow;
     
+    height:100px;
+    width:100px;
+    
+    border:5px solid black;
   }
   .sidebar-2{
-    height:10vh;
+    position:absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    height:75px;
     width:200px;
-    background-color:rgb(135, 159, 120);
-    color:rgb(11, 56, 219);
+    background-image: linear-gradient(to bottom right, #444, #2e2e2e, #444, #2e2e2e);
+    color: #fff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    border-radius:5px;
+    text-transform:capitalize;
   }
   .sidebar-3{
-    height:10vh;
-    width:200px;
-    background-color:rgb(135, 159, 120);
+    position:absolute;
+    top:175px;
+    left:50px;
+    height:100px;
+    width:250px;
+    background-image: linear-gradient(to bottom right, #444, #2e2e2e, #444, #2e2e2e);
+    color: #fff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    border-radius:5px;
+    text-transform:capitalize;
   }
   .sidebar-4{
-    height:10vh;
-    width:200px;
-    background-color:rgb(135, 159, 120);
+    position:absolute;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    top:300px;
+    left:50px;
+    height:50px;
+    width:250px;
+    background-image: linear-gradient(to bottom right, #444, #2e2e2e, #444, #2e2e2e);
+    color: #fff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    border-radius:5px;
+    text-transform:capitalize;
   }
-  .sidebar-5{
-    height:10vh;
-    width:200px;
-    background-color:rgb(135, 159, 120);
-  }
+
 
   .name{
     padding-top: 1.2rem;

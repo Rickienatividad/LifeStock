@@ -17,7 +17,7 @@ function Sidebar(props) {
       <button className="toggle-btn" onClick={toggleSidebar}>
         <span className={`toggle-icon ${isOpen ? "open" : ""}`}>≡</span>
       </button>
-      <div className={`sidebar-content ${isOpen ? "open" : ""}`}>
+      
         <div
           className="sidebar-1"
           style={{
@@ -27,13 +27,13 @@ function Sidebar(props) {
         <div className="sidebar-2">
           <h1 className="name">{username}</h1>
         </div>
-        <div className="sidebar-3"></div>
+
         <div className="sidebar-4">
           <h5>Assignment: rig {userRig}</h5>
         </div>
 
         <div className="sidebar-5"></div>
-      </div>
+      
     </div>
   );
 }
