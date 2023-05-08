@@ -69,7 +69,7 @@ export function SupervisorView() {
 
   const [selectUser, setSelectUser] = useState("");
 
-  const [isUsersVisible, setIsUsersVisible] = useState(true);
+  // const [isUsersVisible, setIsUsersVisible] = useState(true);
 
   //retrieves user_id for user clicked in form below to dynamically send patch request to that user on the backend
   const selectedUser = (event) => {
