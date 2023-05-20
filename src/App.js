@@ -1,4 +1,3 @@
-
 import { Login } from "./pages/Login";
 import Field from "./pages/Field";
 import { SupervisorView } from "./pages/Supervisor";
@@ -7,7 +6,7 @@ import { Protected } from "./Security/Protected";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Items } from "./pages/Items";
 import { Checklists } from "./pages/Checklists";
-import { SupervisorTest } from "./pages/Supervisor_test"
+import { SupervisorTest } from "./pages/Supervisor_test";
 
 function App() {
   return (
