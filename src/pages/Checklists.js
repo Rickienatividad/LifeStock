@@ -7,7 +7,6 @@ export function Checklists() {
   const handleItems = () => {
     axios.get("http://localhost:3000/items.json").then((response) => {
       setItems(response.data);
-      console.log(response.data);
     });
   };
   useEffect(handleItems, []);
@@ -67,13 +66,6 @@ export function Checklists() {
           onChange={(event) => setSearchFilter(event.target.value)}
           list="rig_checklist_id"
         />
-        {/* <select id="rig_checklist_id">
-          {manifests.map((manifest) => (
-            <option key={manifest.id}>{manifest.rig_checklist_id}</option>
-          ))}
-        </select> */}
-
-        {/* <div className="add_item"> */}
         <form className="manifest_form" onSubmit={handleSubmit}>
           <label className="card_label">Add Item to Checklist:</label>
 

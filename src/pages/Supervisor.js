@@ -6,6 +6,7 @@ import { Items } from "./Items";
 import { Checklists } from "./Checklists";
 import Sidebar from "../components/Sidebar";
 import { ChecklistNumbers } from "./ChecklistNumbers";
+import { Copies } from "./Copies";
 
 export function SupervisorView() {
   const [messages, setMessages] = useState([]);
@@ -59,7 +60,6 @@ export function SupervisorView() {
   const [rigs, setRigs] = useState([]);
   const handleRigs = () => {
     axios.get("http://localhost:3000/rigs.json").then((response) => {
-      console.log(response.data);
       setRigs(response.data);
     });
   };
