@@ -13,7 +13,6 @@ export function ChecklistNumbers() {
       .get("http://localhost:3000/rig_checklists.json")
       .then((response) => {
         setChecklists(response.data);
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error.response.data.errors);

@@ -1,5 +1,6 @@
 import { Login } from "./pages/Login";
 import Field from "./pages/Field";
+import { Copies } from "./pages/Copies";
 import { SupervisorView } from "./pages/Supervisor";
 import "./style/field.css";
 import { Protected } from "./Security/Protected";
@@ -27,6 +28,7 @@ function App() {
           <Route path="/supervisor" element={<SupervisorView />} />
           <Route path="/items" element={<Items />} />
           <Route path="/checklists" element={<Checklists />} />
+          <Route path="/copies" element={<Copies />} />
         </Routes>
       </BrowserRouter>
     </main>

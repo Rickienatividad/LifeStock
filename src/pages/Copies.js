@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Fragment } from "react";
+import "../style/Copies.css";
 
 export function Copies() {
   // acquire rig checklist index for all rigs
@@ -31,8 +32,7 @@ export function Copies() {
   });
 
   return (
-    <div>
-      <button type="button">Checklists Per Rig</button>
+    <div className="main">
       <div>
         {listArray.map((list) => (
           <table key={list.id}>
