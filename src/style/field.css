@@ -8,6 +8,15 @@
 
   .welcome {
     display:hidden;
+    box-shadow:
+    inset 0 0 50px #fff,      /* inner white */
+    inset 20px 0 80px rgb(67, 50, 67),   /* inner left magenta short */
+    inset -20px 0 80px rgb(95, 160, 160),  /* inner right cyan short */
+    inset 20px 0 300px rgb(67, 53, 67),  /* inner left magenta broad */
+    inset -20px 0 300px rgb(10, 26, 26), /* inner right cyan broad */
+    0 0 50px #fff,            /* outer white */
+    -10px 0 80px rgb(62, 20, 62),        /* outer left magenta */
+    10px 0 80px rgb(63, 136, 136);         /* outer right cyan */
   }
   
   
@@ -26,15 +35,21 @@
   }
   .field_subcontainer{
     display:flex;
+    flex-direction:column;
     align-items:center;
-    justify-content: center;
-    width:80vw;
-    height:80vh;
+    justify-content: start;
+    width:300px;
+    height:400px;
+  }
+  .field_options{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-evenly;
+    align-items:center;
+    height:100px;
+    width:300px;
   }
 
-    .boolean_container{
-      height:100%;
-    }
       /* Reference Tabulator.css */
 
   /* form {
@@ -76,9 +91,7 @@
     height: 5rem;
   }
   
-  /* .flex-container {
-    display:flex;
-    flex-direction: row;
+  .shift {
+    margin-left: 1.2rem;
   }
-
-         */
+  

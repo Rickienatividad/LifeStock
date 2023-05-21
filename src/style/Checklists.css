@@ -46,6 +46,7 @@ background-image: linear-gradient(to bottom right, #444, #2e2e2e, #444, #2e2e2e)
 .checklist_interface_title{
     font-size:.75em;
     padding:3%;
+    margin-top:0.75rem;
 }
 
 

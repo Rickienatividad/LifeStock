@@ -2,10 +2,11 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import "../style/Supervisor.css";
 import { Modal } from "../components/Modal.js";
-import { Link } from "react-router-dom";
 import { Items } from "./Items";
 import { Checklists } from "./Checklists";
 import Sidebar from "../components/Sidebar";
+import { ChecklistNumbers } from "./ChecklistNumbers";
+import { Copies } from "./Copies";
 
 export function SupervisorView() {
   const [messages, setMessages] = useState([]);
@@ -59,7 +60,6 @@ export function SupervisorView() {
   const [rigs, setRigs] = useState([]);
   const handleRigs = () => {
     axios.get("http://localhost:3000/rigs.json").then((response) => {
-      // console.log(response.data);
       setRigs(response.data);
     });
   };
@@ -69,7 +69,7 @@ export function SupervisorView() {
 
   const [selectUser, setSelectUser] = useState("");
 
-  const [isUsersVisible, setIsUsersVisible] = useState(true);
+  // const [isUsersVisible, setIsUsersVisible] = useState(true);
 
   //retrieves user_id for user clicked in form below to dynamically send patch request to that user on the backend
   const selectedUser = (event) => {
@@ -90,6 +90,15 @@ export function SupervisorView() {
       .catch((error) => {
         console.log(error.response.data.errors);
       });
+  };
+
+  const [isStatsVisible, setIsStatsVisible] = useState(false);
+  const showStats = () => {
+    setIsStatsVisible(true);
+  };
+
+  const hideStats = () => {
+    setIsStatsVisible(false);
   };
 
   return (
@@ -115,6 +124,9 @@ export function SupervisorView() {
             </div>
           ))}
         </div>
+      </Modal>
+      <Modal show={isStatsVisible} onClose={hideStats}>
+        <ChecklistNumbers />
       </Modal>
       <div className="supervisor_columns">
         <div className="supervisor_column_1">
@@ -185,25 +197,12 @@ export function SupervisorView() {
         </div>
       </div>
       <div className="supervisor_buttons">
-        {/* <button>
-          <Link
-            to={"/items"}
-            style={{ textDecoration: "none", color: "black" }}
-          >
-            Inventory Items
-          </Link>
-        </button> */}
         <button type="button" onClick={() => showMessages()}>
           Open Messages
         </button>
-        {/* <button>
-          <Link
-            to={"/checklists"}
-            style={{ textDecoration: "none", color: "black" }}
-          >
-            View/Edit Checklists
-          </Link>
-        </button> */}
+        <button type="button" onClick={() => showStats()}>
+          See <br></br>Stats
+        </button>
       </div>
     </div>
   );

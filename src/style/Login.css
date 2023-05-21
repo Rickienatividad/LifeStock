@@ -42,6 +42,7 @@
         background-image:url('../assets/metallic3.jpg');
         background-size:contain;
         
+        
       }
       
       .star_of_life{
@@ -50,6 +51,7 @@
         background-repeat:no-repeat;
         height:4.5rem;
         width:4.5rem;
+        
       }
       .title{
         color:white;

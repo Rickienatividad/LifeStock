@@ -211,7 +211,7 @@ function Field() {
             formatter={"textarea"}
           />
         </div>
-        <div className="container2">
+        <div className="field_options">
           <button type="button" onClick={handleChecklist}>
             Reset Rig {userRig} Checklist
           </button>
@@ -232,11 +232,11 @@ function Field() {
               ></input>
               <div>Shift:</div>
               <div className="flex-shifts">
-                <div>
+                <div className="shift">
                   <input type="radio" name="shift" value="first"></input>
                   <label>First</label>
                 </div>
-                <div>
+                <div className="shift">
                   <input type="radio" name="shift" value="second"></input>
                   <label>Second</label>
                 </div>
