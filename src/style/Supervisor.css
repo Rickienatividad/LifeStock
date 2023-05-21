@@ -87,29 +87,34 @@ align-items:top;
   box-shadow: 10px 10px 50px rgb(0, 0, 0);
   background-image: linear-gradient(to bottom right, #444, #2e2e2e, #444, #2e2e2e);
   border-radius:5px; 
-}
   
-  .inventory_interface{
-    display:flex;
-    flex-direction:row;    
-  }
- 
-  .supervisor_column_1{
-    position: relative;
-    top: 3rem;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:start;
-  }
+}
 
-  .supervisor_column_2{
-    position: relative;
-    bottom: 9.5rem;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:start;
+/* .rig-button {
+  background: #888;
+  color: #fff;
+  width: 95%;
+  
+}  */
+.placeholder_block{
+  width:250px;
+  height:200px;
+}
+.assignments-container {
+  width:250px;
+  height:400px;
+  color: #fff;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+  Display:flex;
+  flex-direction:column;
+  align-items:center;
+  border-radius:5px;
+  background-color:#444;
+  box-shadow: 10px 10px 50px rgb(0, 0, 0);
+  background-image: linear-gradient(to bottom right, #444, #2e2e2e);
+}
+  .assignments-container td{
+    background-image:radial-gradient(200% 70% at center 20%, rgba(48,44,45,1) -30%, rgba(50,46,47,1) 49%, rgba(22,18,19,1) 50%, rgba(22,18,19,1) 150%);
   }
 
 .inventory_interface{
@@ -119,13 +124,18 @@ align-items:top;
   
 }
 
-  .message {
-    color: rgb(237, 133, 133);
-    border: 1px solid black;
-    margin: 1.2rem;
-  }
+.supervisor_column_1{
+  position: relative;
+  top: 3rem;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:start;
+}
 
 .supervisor_column_2{
+  position: relative;
+  bottom: 9.5rem;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -143,15 +153,11 @@ align-items:top;
   align-items:center;
 }
 
-  .message {
-    color: rgb(237, 133, 133);
-    border: 1px solid black;
-    margin: 1.2rem;
-  }
-
-  .assignments-container {
-    position: relative;
-  }
+.message {
+  color: rgb(237, 133, 133);
+  border: 1px solid black;
+  margin: 1.2rem;
+}
 
 
 
