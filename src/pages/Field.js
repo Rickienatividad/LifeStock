@@ -158,28 +158,28 @@ function Field() {
   const [updatedTableData, setUpdatedTableData] = useState([]);
   //updates when data changes.
   const handleDataChange = (newData) => {
-    setTableData(newData);
     setUpdatedTableData(newData);
   };
+   //Calls sendData() on state change.
+   useEffect(() => {
+    sendData();
+  }, [updatedTableData]);
   //Sends Data and handles response.
   const sendData = () => {
     axios
-      .post("http://localhost:3000/", updatedTableData)
+      .patch("http://localhost:3000/rig_checklists/1.json", updatedTableData)
       .then((response) => {
         console.log(response.data);
       })
   };
- //Calls sendData() on state change.
-  useEffect(() => {
-    sendData();
-  }, [updatedTableData]);
+
   
   
 
   return (
     <div className="App">
       <div className="field_container">
-        <Sidebar id={userId} username={username} userRig={userRig} />
+        {/* <Sidebar id={userId} username={username} userRig={userRig} /> */}
         <h4 className="welcome">{Date()}</h4>
 
         <div className="field_subcontainer">
@@ -233,10 +233,12 @@ function Field() {
                 rows="5"
                 name="content"
               ></textarea>
+              
               <button type="submit">Submit</button>
             </form>
           </Modal>
         </div>
+        <button onClick={sendData}>Send Data</button>
         <div className="bottom-Bar">Field Tech Portal</div>
       </div>
     </div>
