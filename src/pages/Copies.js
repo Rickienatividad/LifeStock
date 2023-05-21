@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Fragment } from "react";
 import "../style/Copies.css";
-import { Link } from "react-router-dom";
 import { Modal } from "../components/Modal";
+import { ListsIndex } from "./ListsIndex";
+import { ListsShow } from "./ListsShow";
 
 export function Copies() {
   // acquire rig checklist index for all rigs
@@ -47,46 +47,10 @@ export function Copies() {
 
   return (
     <div className="main">
-      <div>
-        {listArray
-          .sort((a, b) => a.rig_id - b.rig_id)
-          .map((list) => (
-            <div key={list.id}>
-              <Link to="#" onClick={showList}>
-                Rig: {list.rig_id} - {list.date}
-              </Link>
-              <table style={{ display: isListVisible ? "block" : "none" }}>
-                <thead>
-                  <tr>
-                    <td>Item</td>
-                    <td>Minimum Count</td>
-                    <td>Actual Count</td>
-                    <td>Rig Id: {list.rig_id}</td>
-                  </tr>
-                </thead>
-                {array.map((manifest) =>
-                  manifest.checklist_id === list.id ? (
-                    <tbody key={Math.random(manifest.id)}>
-                      <tr>
-                        <td>{manifest.item}</td>
-                        <td>{manifest.minimum}</td>
-                        <td>{manifest.actual}</td>
-                      </tr>
-                    </tbody>
-                  ) : (
-                    // <></>
-                    <Fragment key={Math.random()} />
-                  )
-                )}
-                <tbody>
-                  <tr>
-                    <td>Rig {list.rig_id}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          ))}
-      </div>
+      <ListsIndex checklists={checklists} onSelectList={showList} />
+      <Modal show={isListVisible} onClose={hideList}>
+        <ListsShow list={currentList} array={array} />
+      </Modal>
     </div>
   );
 }
