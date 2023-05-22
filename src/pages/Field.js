@@ -88,7 +88,7 @@ function Field() {
     axios
       .get(`http://localhost:3000/boolean_checklists/${userRig}.json`)
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         setBooleanChecklist({ ...response.data });
       });
   };
@@ -192,6 +192,32 @@ function Field() {
   });
   let itemData = array;
 
+  const updateManifest = (event) => {
+    event.preventDefault();
+    const params = new FormData(event.target);
+
+    axios
+      .patch("http://localhost:3000/manifests/7.json", params)
+      .then((response) => {
+        // console.log(response.data);
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.log(error.response.data.errors);
+      });
+  };
+
+  const updateChecklist = (event) => {
+    event.preventDefault();
+    const params = new FormData(event.target);
+
+    axios
+      .patch("http://localhost:3000/rig_checklists/2.json", params)
+      .then((response) => {
+        console.log(response.data);
+      });
+  };
+
   return (
     <div className="App">
       <div className="field_container">
@@ -210,6 +236,20 @@ function Field() {
             resizableRows={false}
             formatter={"textarea"}
           />
+          {/* {array.map((item) => (
+            <p>{item.manifest_id}</p>
+          ))} */}
+
+          <form onSubmit={updateManifest}>
+            <label>Actual Count for Manifest 7</label>
+            <input type="number" name="actual_count"></input>
+            <button type="submit">Submit</button>
+          </form>
+          <form onSubmit={updateChecklist}>
+            <label>Signed by:</label>
+            <input type="text" name="signed_by" defaultValue={username}></input>
+            <button type="submit">Save Checklist</button>
+          </form>
         </div>
         <div className="field_options">
           <button type="button" onClick={handleChecklist}>
