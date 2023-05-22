@@ -17,7 +17,7 @@ export function ListsShow(props) {
               <tr>
                 <td>{manifest.item}</td>
                 <td>{manifest.minimum}</td>
-                <td>{manifest.actual}</td>
+                <td>{manifest.actual_count}</td>
               </tr>
             </tbody>
           ) : (
@@ -27,7 +27,7 @@ export function ListsShow(props) {
         )}
         <tbody>
           <tr>
-            <td>Rig {props.list.rig_id}</td>
+            <td>Signed By: {props.list.signed_by}</td>
           </tr>
         </tbody>
       </table>

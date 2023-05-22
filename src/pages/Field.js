@@ -88,7 +88,7 @@ function Field() {
     axios
       .get(`http://localhost:3000/boolean_checklists/${userRig}.json`)
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         setBooleanChecklist({ ...response.data });
       });
   };
@@ -187,10 +187,42 @@ function Field() {
   let array = [];
 
   Object.entries(rigChecklist).map((item) => {
+    item[1].rand = Math.random();
     array.push(item[1]);
     return item;
   });
   let itemData = array;
+  // console.log(array);
+
+  const updateManifest = (event) => {
+    event.preventDefault();
+    const params = new FormData(event.target);
+
+    axios
+      .patch("http://localhost:3000/manifests/7.json", params)
+      .then((response) => {
+        // console.log(response.data);
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.log(error.response.data.errors);
+      });
+  };
+
+  const updateChecklist = (event) => {
+    event.preventDefault();
+    const params = new FormData(event.target);
+
+    axios
+      .patch("http://localhost:3000/rig_checklists/2.json", params)
+      .then((response) => {
+        console.log(response.data);
+      });
+  };
+
+  const handleInput = () => {
+    console.log("changed input");
+  };
 
   return (
     <div className="App">
@@ -198,8 +230,8 @@ function Field() {
         <Sidebar id={userId} username={username} userRig={userRig} />
         <h4 className="welcome">{Date()}</h4>
 
-        <div className="field_subcontainer">
-          <ReactTabulator
+        {/* <div className="field_subcontainer"> */}
+        {/* <ReactTabulator
             data={itemData}
             columns={itemColumns}
             layout={"fitDataFill"}
@@ -209,8 +241,40 @@ function Field() {
             selectable={false}
             resizableRows={false}
             formatter={"textarea"}
-          />
+          /> */}
+        {/* {array.map((item) => (
+            <p>{item.manifest_id}</p>
+          ))} */}
+
+        {/* <form onSubmit={updateManifest}>
+            <label>Actual Count for Manifest 7</label>
+            <input type="number" name="actual_count"></input>
+            <button type="submit">Submit</button>
+          </form> */}
+        {/* </div> */}
+        <div className="checklist-item-container">
+          <h6>Item</h6>
+          <h6>Minimum</h6>
+          <h6>Actual Count</h6>
         </div>
+        {array.map((item) => (
+          <form key={item.rand} className="item-form">
+            <div className="item-flex items">
+              <input defaultValue={item.item} readOnly></input>
+              <input defaultValue={item.minimum} readOnly></input>
+              <input
+                defaultValue={item.actual_count}
+                type="number"
+                onBlur={() => handleInput()}
+              ></input>
+            </div>
+          </form>
+        ))}
+        <form onSubmit={updateChecklist}>
+          <label>Signed by:</label>
+          <input type="text" name="signed_by" defaultValue={username}></input>
+          <button type="submit">Save Checklist</button>
+        </form>
         <div className="field_options">
           <button type="button" onClick={handleChecklist}>
             Reset Rig {userRig} Checklist
