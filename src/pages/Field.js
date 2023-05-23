@@ -194,21 +194,6 @@ function Field() {
   let itemData = array;
   // console.log(array);
 
-  const updateManifest = (event) => {
-    event.preventDefault();
-    const params = new FormData(event.target);
-
-    axios
-      .patch("http://localhost:3000/manifests/7.json", params)
-      .then((response) => {
-        // console.log(response.data);
-        window.location.reload();
-      })
-      .catch((error) => {
-        console.log(error.response.data.errors);
-      });
-  };
-
   const updateChecklist = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
@@ -220,8 +205,32 @@ function Field() {
       });
   };
 
-  const handleInput = () => {
-    console.log("changed input");
+  let currentManifest;
+  const findManifest = (event) => {
+    currentManifest = event;
+    return currentManifest;
+  };
+
+  useEffect(findManifest);
+
+  // const handleInput = (event) => {
+  //   console.log(
+  //     `manifest: ${currentManifest}, Quantity: ${event.target.value}`
+  //   );
+  // };
+
+  const updateManifest = (event) => {
+    event.preventDefault();
+    axios
+      .patch(`http://localhost:3000/manifests/${currentManifest}.json`, {
+        actual_count: event.target.value,
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error.response.data.errors);
+      });
   };
 
   return (
@@ -259,13 +268,17 @@ function Field() {
         </div>
         {array.map((item) => (
           <form key={item.rand} className="item-form">
-            <div className="item-flex items">
+            <div
+              className="item-flex items"
+              defaultValue={item.manifest_id}
+              onClick={() => findManifest(item.manifest_id)}
+            >
               <input defaultValue={item.item} readOnly></input>
               <input defaultValue={item.minimum} readOnly></input>
               <input
                 defaultValue={item.actual_count}
                 type="number"
-                onBlur={() => handleInput()}
+                onBlur={updateManifest}
               ></input>
             </div>
           </form>
