@@ -118,6 +118,7 @@
   }
 
   .items input {
+    background: #888;
     width: 90%;
     height: 1.4rem;
     text-align: center;

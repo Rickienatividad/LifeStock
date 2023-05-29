@@ -74,115 +74,11 @@ function Field() {
     axios
       .get(`http://localhost:3000/rig_checklists/${userRig}.json`)
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         setRigChecklist({ ...response.data });
       });
   };
   useEffect(handleChecklist, [username]);
-
-  //Retrieving booleanChecklist for this Rig/User
-
-  const [booleanChecklist, setBooleanChecklist] = useState({});
-  const handleBooleanChecklist = () => {
-    setBooleanChecklist("");
-    axios
-      .get(`http://localhost:3000/boolean_checklists/${userRig}.json`)
-      .then((response) => {
-        // console.log(response.data);
-        setBooleanChecklist({ ...response.data });
-      });
-  };
-  useEffect(handleBooleanChecklist, []);
-
-  //Tabulator;
-
-  // const columns = [
-  //   { title: "Item", field: "item", width: 300, responsive: 0 },
-  //   {
-  //     title: "Is Done",
-  //     field: "is_done",
-  //     editor: "tickCross",
-  //     editable: true,
-  //     editorParams: {
-  //       trueValue: true,
-  //       falseValue: false,
-  //       tristate: false,
-  //       elementAttributes: {
-  //         maxlength: "10", //set the maximum character length of the input element to 10 characters
-  //       },
-  //     },
-  //     widthGrow: 1,
-  //     responsive: 0,
-  //   },
-  // ];
-
-  // var data = [
-  //   {
-  //     id: 1,
-  //     item: `${Object.keys(booleanChecklist)[1]}`,
-  //     is_done: `${Object.values(booleanChecklist)[1]}`,
-  //   },
-  //   {
-  //     id: 2,
-  //     item: `${Object.keys(booleanChecklist)[4]}`,
-  //     is_done: `${Object.values(booleanChecklist)[4]}`,
-  //   },
-  //   {
-  //     id: 3,
-  //     item: `${Object.keys(booleanChecklist)[3]}`,
-  //     is_done: `${Object.values(booleanChecklist)[3]}`,
-  //   },
-  // ];
-
-  // item tabulator
-  const itemColumns = [
-    {
-      title: "Item",
-      field: "item",
-      editable: false,
-      editorParams: {
-        resizable: false,
-        trueValue: true,
-        falseValue: false,
-        tristate: false,
-        elementAttributes: {
-          maxlength: "10",
-        },
-      },
-      widthGrow: 1,
-      responsive: 0,
-    },
-    {
-      title: "Minimum",
-      field: "minimum",
-      editable: false,
-      editorParams: {
-        resizable: false,
-        trueValue: true,
-        falseValue: false,
-        tristate: false,
-        elementAttributes: {
-          maxlength: "10",
-        },
-      },
-      widthGrow: 1,
-      responsive: 0,
-    },
-    {
-      title: "Actual",
-      field: "actual_count",
-      editable: true,
-      editor: "number",
-      editorParams: {
-        resizable: false,
-        elementAttributes: {
-          maxlength: "3",
-        },
-      },
-      widthGrow: 1,
-      responsive: 0,
-    },
-  ];
 
   let array = [];
 
@@ -191,8 +87,6 @@ function Field() {
     array.push(item[1]);
     return item;
   });
-  let itemData = array;
-  // console.log(array);
 
   const updateChecklist = (event) => {
     event.preventDefault();
@@ -213,24 +107,30 @@ function Field() {
 
   useEffect(findManifest);
 
-  // const handleInput = (event) => {
-  //   console.log(
-  //     `manifest: ${currentManifest}, Quantity: ${event.target.value}`
-  //   );
-  // };
+  //updating manifests/checklists
+  const requestArray = [];
+  const requestObj = {};
 
-  const updateManifest = (event) => {
+  const addRequest = (event) => {
+    requestObj[currentManifest] = event.target.value;
+    requestArray.push(requestObj);
+  };
+
+  const handleUpdate = (event) => {
     event.preventDefault();
-    axios
-      .patch(`http://localhost:3000/manifests/${currentManifest}.json`, {
-        actual_count: event.target.value,
-      })
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error.response.data.errors);
-      });
+    const payload = requestArray[requestArray.length - 1];
+    for (const [key, value] of Object.entries(payload)) {
+      axios
+        .patch(`http://localhost:3000/manifests/${key}.json`, {
+          actual_count: value,
+        })
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log(error.response.data.errors);
+        });
+    }
   };
 
   return (
@@ -238,29 +138,6 @@ function Field() {
       <div className="field_container">
         <Sidebar id={userId} username={username} userRig={userRig} />
         <h4 className="welcome">{Date()}</h4>
-
-        {/* <div className="field_subcontainer"> */}
-        {/* <ReactTabulator
-            data={itemData}
-            columns={itemColumns}
-            layout={"fitDataFill"}
-            layoutColumnsOnNewData={true}
-            responsiveLayout={"collapse"}
-            textDirection={"rtl"}
-            selectable={false}
-            resizableRows={false}
-            formatter={"textarea"}
-          /> */}
-        {/* {array.map((item) => (
-            <p>{item.manifest_id}</p>
-          ))} */}
-
-        {/* <form onSubmit={updateManifest}>
-            <label>Actual Count for Manifest 7</label>
-            <input type="number" name="actual_count"></input>
-            <button type="submit">Submit</button>
-          </form> */}
-        {/* </div> */}
         <div className="checklist-item-container">
           <h6>Item</h6>
           <h6>Minimum</h6>
@@ -278,12 +155,13 @@ function Field() {
               <input
                 defaultValue={item.actual_count}
                 type="number"
-                onBlur={updateManifest}
+                // onBlur={updateManifest}
+                onBlur={addRequest}
               ></input>
             </div>
           </form>
         ))}
-        <form onSubmit={updateChecklist}>
+        <form onSubmit={handleUpdate}>
           <label>Signed by:</label>
           <input type="text" name="signed_by" defaultValue={username}></input>
           <button type="submit">Save Checklist</button>
