@@ -88,17 +88,6 @@ function Field() {
     return item;
   });
 
-  const updateChecklist = (event) => {
-    event.preventDefault();
-    const params = new FormData(event.target);
-
-    axios
-      .patch("http://localhost:3000/rig_checklists/2.json", params)
-      .then((response) => {
-        console.log(response.data);
-      });
-  };
-
   let currentManifest;
   const findManifest = (event) => {
     currentManifest = event;
@@ -131,6 +120,14 @@ function Field() {
           console.log(error.response.data.errors);
         });
     }
+
+    axios
+      .patch(`http://localhost:3000/rig_checklists/${userRig}.json`, {
+        signed_by: username,
+      })
+      .then((response) => {
+        console.log(response.data);
+      });
   };
 
   return (
