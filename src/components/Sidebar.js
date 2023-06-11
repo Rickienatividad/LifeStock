@@ -6,23 +6,13 @@ function Sidebar(props) {
   const username = props.username;
   const userRig = props.userRig;
 
-  const [isOpen, setIsOpen] = useState(false);
-
-  function toggleSidebar() {
-    setIsOpen(!isOpen);
-  }
-
   return (
-    <div className={`sidebar ${isOpen ? "open" : ""}`}>
-      <button className="toggle-btn" onClick={toggleSidebar}>
-        <span className={`toggle-icon ${isOpen ? "open" : ""}`}>≡</span>
-      </button>
-      
+    <div className={`sidebar`}>
         <div
           className="sidebar-1"
-          style={{
-            backgroundImage: `url("/img/${userId}.png")`,
-          }}
+          // style={{
+          //   backgroundImage: `url("../assets/${userId}.jpg")`,
+          // }}
         ></div>
         <div className="sidebar-2">
           <h1 className="name">{username}</h1>

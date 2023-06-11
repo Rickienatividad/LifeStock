@@ -2,34 +2,14 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import "../style/Supervisor.css";
 import { Modal } from "../components/Modal.js";
-import { Link } from "react-router-dom";
 import { Items } from "./Items";
 import { Checklists } from "./Checklists";
 
+import Sidebar from "../components/Sidebar.js";
+import WeatherCard from "../components/Weather";
+import Map from "../components/Map";
+
 export function SupervisorView() {
-  const [messages, setMessages] = useState([]);
-  const [isMessagesVisible, setIsMessagesVisible] = useState(false);
-
-  // MESSAGES
-  const handleMessages = () => {
-    axios.get("http://localhost:3000/messages.json").then((response) => {
-      // console.log(response.data);
-      setMessages(response.data);
-    });
-  };
-
-  // renders messages on page load
-  useEffect(handleMessages, []);
-
-  //opens modal with messages
-  const showMessages = () => {
-    setIsMessagesVisible(true);
-  };
-
-  const hideMessages = () => {
-    setIsMessagesVisible(false);
-  };
-
   //USERS
 
   const [users, setUsers] = useState([]);
@@ -94,32 +74,12 @@ export function SupervisorView() {
   return (
     <div className="supervisor_container">
       <h2 className="welcome">LIFESTOCK | Supervisor</h2>
-
-      <Modal show={isMessagesVisible} onClose={hideMessages}>
-        <div className="messages-container">
-          {messages.map((message) => (
-            <div key={message.id} className="message">
-              <p>
-                <span className="bold">date:</span> {message.date}
-              </p>
-              <p>
-                <span className="bold">shift:</span> {message.shift}
-              </p>
-              <p>
-                <span className="bold">field tech: </span>
-                {message.user_first} {message.user_last}{" "}
-              </p>
-              <p>
-                <span className="bold">message:</span> {message.content}
-              </p>
-            </div>
-          ))}
-        </div>
-      </Modal>
-      <div className="supervisor_columns">
-        <div className="supervisor_column_1">
+      <Sidebar />
+      <div className="supervisor-content">
+      <div className="supervisor-columns">
+        <div className="supervisor-column-1">
           <form className="assign-form" onSubmit={handleFieldAssign}>
-            <div className="assign_tech" id="card">
+            <div className="assign-tech" id="card">
 
             <label>Tech:</label>
             <select id="id" name="id" size="8">
@@ -134,7 +94,7 @@ export function SupervisorView() {
               ))}
             </select>
             </div>
-            <div className="assign_rig" id="card">
+            <div className="assign-rig" id="card">
             <label>Rig:</label>
             <select id="rig_id" name="rig_id" size="6">
               <option value="1">Rig 1</option>
@@ -150,10 +110,7 @@ export function SupervisorView() {
             </button>
             </div>
           </form>
-          </div>
-          <div className="supervisor_column_2">
-            <div className="placeholder_block" id="card"></div>
-          <div className="assignments-container" id="card">
+                    <div className="assignments-container" id="card">
             <h3>Current Assignments</h3>
             <table className="assignments-table">
               <thead>
@@ -178,15 +135,21 @@ export function SupervisorView() {
               </tbody>
             </table>
           </div>
+          <WeatherCard />
+          </div>
+          <div className="supervisor-column-2">
+            <div className="Map">
+              <Map />
+            </div>
           </div>
         <div className="inventory_interface">
-          
+            <Modal />
             <Items />
-          
           
             <Checklists />
           
         </div>
+      </div>
       </div>
       <div className="supervisor_buttons">
         {/* <button>
@@ -197,9 +160,9 @@ export function SupervisorView() {
             Inventory Items
           </Link>
         </button> */}
-        <button type="button" onClick={() => showMessages()}>
+        {/* <button type="button" onClick={() => showMessages()}>
           Open Messages
-        </button>
+        </button> */}
         {/* <button>
           <Link
             to={"/checklists"}

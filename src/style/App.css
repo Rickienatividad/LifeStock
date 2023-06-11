@@ -8,6 +8,7 @@ html {
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 20px;
   color: #fff;
+  overflow:hidden;
 }
 
 body {
@@ -19,7 +20,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-height: 100vh;
+height: auto;
 overflow-x:hidden;
 }
 /* width */
@@ -55,10 +56,10 @@ overflow-x:hidden;
 } */
 
 #card{
-  margin-top:5vh;
-  margin-left:3vw;
-  margin-right:3vw;
-  margin-bottom:5vh;
+  margin-top:20px;
+  margin-left:20px;
+  margin-right:20px;
+  margin-bottom:20px;
 }
 .card_label{
   flex-direction:row;
