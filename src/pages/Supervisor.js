@@ -78,6 +78,7 @@ export function SupervisorView() {
       <div className="supervisor-content">
       <div className="supervisor-columns">
         <div className="supervisor-column-1">
+          <div className="assignment-form-container">
           <form className="assign-form" onSubmit={handleFieldAssign}>
             <div className="assign-tech" id="card">
 
@@ -134,6 +135,7 @@ export function SupervisorView() {
                 ))}
               </tbody>
             </table>
+          </div>
           </div>
           <WeatherCard />
           </div>

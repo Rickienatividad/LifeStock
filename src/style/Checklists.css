@@ -1,73 +1,65 @@
-.checklist_container{
-    display:flex;
-    flex-direction:column;
-}
-.checklist_interface{
-    height:200px;
-    width:250px;
-    background-color:#444;
-    border-radius:5px;
-    box-shadow: 10px 10px 50px rgb(0, 0, 0);
-    color: #fff;
-    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content: start;
-    background-image: linear-gradient(to bottom right, #444, #2e2e2e, #444, #2e2e2e);
-}
-.checklist_display{
-width:250px;
-height:400px;
-background-color:#444444;
-border-radius:5px;
-box-shadow: 10px 10px 50px rgb(0, 0, 0);
+.checklist_container,
+.checklist_interface,
+.checklist_display,
+.manifest_form {
+display: flex;
+flex-direction: column;
 color: #fff;
-text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-font-size:1em;
-background-image: linear-gradient(to bottom right, #444, #2e2e2e, #444, #2e2e2e);
+text-shadow: var(--text-shadow);
 }
 
-.checklist_display table{
-    width:250px;
-}
-/* .checklist_display tr{
-    width:15vw;
-}
-.checklist_display th{
-    width:7vw;
-} */
-.checklist_display tr{
-    height:20px;
-    width:7vw;
-    box-shadow: 2px 2px 5px rgb(0, 0, 0);
+.checklist_container {
+background-color: var(--background-color-medium);
 }
 
-.checklist_interface_title{
-    font-size:.75em;
-    padding:3%;
+.checklist_interface,
+.checklist_display {
+width: 250px;
+border-radius: 5px;
+box-shadow: 10px 10px 50px var(--box-shadow-color);
+align-items: center;
+justify-content: start;
 }
 
-
-.manifest_form{
-    width:250px;
-    height:200px;
-    display:flex;
-    flex-direction:column;
-    font-size:1em;
-    color: #fff;
-    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-    background:transparent;
-    
-    
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content: start;
+.checklist_interface {
+height: 200px;
+background-color: var(--background-color-medium);
 }
-.manifest_form select{
-    width:173px;
-    align-self:center;
+
+.checklist_display {
+height: 400px;
+background-color: rgba(50, 50, 50, 0.9);
+overflow-y: scroll;
+overflow-x: hidden;
+font-size: 1em;
+}
+
+.checklist_display table,
+.checklist_display tr {
+width: 250px;
+height: 20px;
+}
+
+.checklist_display tr {
+box-shadow: 2px 2px 5px var(--box-shadow-color);
+}
+
+.checklist_interface_title,
+.manifest_form {
+font-size: .75em;
+padding: 3%;
+}
+
+.manifest_form {
+height: 200px;
+align-items: center;
+justify-content: start;
+background: transparent;
+}
+
+.manifest_form select {
+width: 173px;
+align-self: center;
 }
 
 /* button{
