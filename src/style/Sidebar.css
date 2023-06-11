@@ -1,3 +1,4 @@
+@media screen and (orientation:landscape){
 .sidebar {
   position: absolute;
   bottom: 0;
@@ -18,15 +19,15 @@
   height: 100px;
   width: 100px;
   padding: 5px 0 5px 0;
-  border: 5px solid var(--border-color);
+  border: 5px solid var(--border-color-light);
   margin-top: 10px;
   margin-bottom: 10px;
   }
   
   .sidebar-2,
   .sidebar-4 {
-  display: flex;
-  align-items: center;
+  display: none;
+  /* align-items: center;
   justify-content: center;
   height: 75px;
   width: 150px;
@@ -36,7 +37,7 @@
   border-radius: 5px;
   text-transform: capitalize;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 10px; */
   }
   
   .sidebar-3 {
@@ -48,5 +49,65 @@
   border-radius: 5px;
   text-transform: capitalize;
   }
+}
 
+  @media screen and (orientation:portrait){
 
+    .sidebar {
+      position:absolute;
+      top:0;
+      left:0;
+      display:flex;
+      flex-direction:row;
+      justify-content: flex-start;
+      height: 15vh;
+      width: 100vw;
+      background-color: var(--background-color-light);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 10px;
+      }
+      
+      .sidebar-1 {
+      display: flex;
+      background-size: contain;
+      background-image: url('../assets/1.jpg');
+      background-position:center;
+      background-repeat: no-repeat;
+      height: 100px;
+      width: 100px;
+      padding: 5px 5px 5px 5px;
+      border: 5px solid rgba(168,168,168, 0.9);
+      border-radius:5%;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      }
+
+      .sidebar-info{
+        display:flex;
+        width:100%;
+        flex-direction: column;
+        justify-content:flex-end;
+        align-items: center;
+
+      }
+
+      .sidebar-2,
+      .sidebar-4 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 25px;
+      width: 150px;
+      background-image: var(--background-gradient);
+      color: #fff;
+      text-shadow: var(--text-shadow);
+      border-radius: 5px;
+      text-transform: capitalize;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      }
+
+  }

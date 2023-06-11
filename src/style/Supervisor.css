@@ -1,11 +1,4 @@
-:root {
-  --background-color-dark: rgba(0,0,0,0.3);
-  --background-color-light: rgba(0, 0, 0, 0.9);
-  --background-color-medium: rgba(0,0,0,.4);
-  --box-shadow-color: rgb(0, 0, 0);
-  --text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-  --background-gradient: rgba(0, 0, 0, 0.746);
-}
+
 
 .supervisor_container{
     margin:0;

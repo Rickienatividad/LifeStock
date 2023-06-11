@@ -4,6 +4,16 @@
   box-sizing: border-box;
 }
 
+:root {
+  --background-color-dark: rgba(0,0,0,0.3);
+  --background-color-light: rgba(0, 0, 0, 0.9);
+  --background-color-medium: rgba(50,50,50,0.9);
+  --border-color-light:(rgba(168,168,168, .7));
+  --box-shadow-color: rgb(0, 0, 0);
+  --text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+  --background-gradient: rgba(0, 0, 0, 0.746);
+}
+
 html {
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 20px;
@@ -12,6 +22,7 @@ html {
 }
 
 body {
+  height:100vh;
   background-color: black;
 }
 
@@ -22,6 +33,12 @@ justify-content: center;
 align-items: center;
 height: auto;
 overflow-x:hidden;
+}
+@media screen and (orientation:portrait){
+  .App{
+    
+    width:200vw;
+  }
 }
 /* width */
 ::-webkit-scrollbar {

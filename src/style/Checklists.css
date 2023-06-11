@@ -9,7 +9,7 @@ text-shadow: var(--text-shadow);
 }
 
 .checklist_container {
-background-color: var(--background-color-medium);
+background-color: var(--background-color-dark);
 }
 
 .checklist_interface,

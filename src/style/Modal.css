@@ -1,8 +1,10 @@
  
   .modal-main {
+    overflow-y:auto;
     height:auto;
+    min-height:93%;
     width:250px;
-    background: rgba(0, 0, 0, 0.4);
+    background-color: var(--background-color-dark);
     border-radius:5px;
     box-shadow: 10px 10px 50px rgb(0, 0, 0);
     color: #fff;
@@ -11,7 +13,6 @@
     flex-direction:column;
     align-items:center;
     justify-content: flex-start;
-    background-color: rgba(168,168,168,0.2);
   }
   .modal-main p {
     padding: 2px 5px 2px 5px;
@@ -20,5 +21,5 @@
   }
   .message{
     margin: 5px 5px 5px 5px;
-    background: rgba(0, 0, 0, 0.8);
+    background:var(--background-color-medium);
   }

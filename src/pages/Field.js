@@ -74,135 +74,107 @@ function Field() {
     axios
       .get(`http://localhost:3000/rig_checklists/${userRig}.json`)
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         setRigChecklist({ ...response.data });
       });
   };
   useEffect(handleChecklist, [username]);
 
-  //Retrieving booleanChecklist for this Rig/User
-
-  const [booleanChecklist, setBooleanChecklist] = useState({});
-  const handleBooleanChecklist = () => {
-    setBooleanChecklist("");
-    axios
-      .get(`http://localhost:3000/boolean_checklists/${userRig}.json`)
-      .then((response) => {
-        console.log(response.data);
-        setBooleanChecklist({ ...response.data });
-      });
-  };
-  useEffect(handleBooleanChecklist, []);
-
-
-
-  // item tabulator
-  const itemColumns = [
-    {
-      title: "Item",
-      field: "item",
-      editable: false,
-      editorParams: {
-        resizable: false,
-        trueValue: true,
-        falseValue: false,
-        tristate: false,
-        elementAttributes: {
-          maxlength: "10",
-        },
-      },
-      widthGrow: 1,
-      responsive: 0,
-    },
-    {
-      title: "Minimum",
-      field: "minimum",
-      editable: false,
-      editorParams: {
-        resizable: false,
-        trueValue: true,
-        falseValue: false,
-        tristate: false,
-        elementAttributes: {
-          maxlength: "10",
-        },
-      },
-      widthGrow: 1,
-      responsive: 0,
-    },
-    {
-      title: "Actual",
-      field: "actual_count",
-      editable: true,
-      editor: "number",
-      editorParams: {
-        resizable: false,
-        elementAttributes: {
-          maxlength: "3",
-        },
-      },
-      widthGrow: 1,
-      responsive: 0,
-    },
-  ];
-
   let array = [];
 
   Object.entries(rigChecklist).map((item) => {
+    item[1].rand = Math.random();
     array.push(item[1]);
     return item;
   });
-  let itemData = array;
 
-  //Holds updated table data.
-  const [updatedTableData, setUpdatedTableData] = useState([]);
-  //updates when data changes.
-  const handleDataChange = (newData) => {
-    setUpdatedTableData(newData);
+  let currentManifest;
+  const findManifest = (event) => {
+    currentManifest = event;
+    return currentManifest;
   };
-   //Calls sendData() on state change.
-   useEffect(() => {
-    sendData();
-  }, [updatedTableData]);
-  //Sends Data and handles response.
-  const sendData = () => {
+
+  useEffect(findManifest);
+
+  //updating manifests/checklists
+  const requestArray = [];
+  const requestObj = {};
+
+  const addRequest = (event) => {
+    requestObj[currentManifest] = event.target.value;
+    requestArray.push(requestObj);
+  };
+
+  const handleUpdate = (event) => {
+    event.preventDefault();
+    const payload = requestArray[requestArray.length - 1];
+    for (const [key, value] of Object.entries(payload)) {
+      axios
+        .patch(`http://localhost:3000/manifests/${key}.json`, {
+          actual_count: value,
+        })
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log(error.response.data.errors);
+        });
+    }
+
     axios
-      .patch("http://localhost:3000/rig_checklists/1.json", updatedTableData)
+      .patch(`http://localhost:3000/rig_checklists/${userRig}.json`, {
+        signed_by: username,
+      })
       .then((response) => {
         console.log(response.data);
-      })
+      });
   };
-
-  
-  
 
   return (
     <div className="App">
       <div className="field_container">
-        {/* <Sidebar id={userId} username={username} userRig={userRig} /> */}
-        <h4 className="welcome">{Date()}</h4>
-
-        <div className="field_subcontainer">
-          <ReactTabulator
-            data={itemData}
-            dataChanged={handleDataChange}
-            columns={itemColumns}
-            layout={"fitDataFill"}
-            layoutColumnsOnNewData={true}
-            responsiveLayout={"collapse"}
-            textDirection={"rtl"}
-            selectable={false}
-            resizableRows={false}
-            formatter={"textarea"}
-          />
+      
+        <Sidebar id={userId} username={username} userRig={userRig} />
+        
+        <div className="field-checklist-container">
+        <div className="checklist-item-container">
+          <h6>Item</h6>
+          <h6>Minimum</h6>
+          <h6>Actual Count</h6>
         </div>
+        <div className="field-form-wrapper">
+        {array.map((item) => (
+          <form key={item.rand} className="item-form">
+            <div
+              className="item-flex items"
+              defaultValue={item.manifest_id}
+              onClick={() => findManifest(item.manifest_id)}
+            >
+              <input defaultValue={item.item} readOnly></input>
+              <input defaultValue={item.minimum} readOnly></input>
+              <input
+                defaultValue={item.actual_count}
+                type="number"
+                // onBlur={updateManifest}
+                onBlur={addRequest}
+              ></input>
+            </div>
+          </form>
+        ))}
+        </div>
+        <form onSubmit={handleUpdate}>
+          <label>Signed by:</label>
+          <input type="text" name="signed_by" defaultValue={username}></input>
+          <button type="submit">Save Checklist</button>
+        </form>
         <div className="field_options">
           <button type="button" onClick={handleChecklist}>
             Reset Rig {userRig} Checklist
           </button>
-          <button type="button" onClick={showMessages}>
-            Send A Message
-          </button>
+
+          </div>
+          </div>
+          <div className="field-messages-container">
           <Modal show={isInputVisible} onClose={hideMessages}>
             <form onSubmit={handleSubmit}>
               <input
@@ -217,11 +189,11 @@ function Field() {
               ></input>
               <div>Shift:</div>
               <div className="flex-shifts">
-                <div>
+                <div className="shift">
                   <input type="radio" name="shift" value="first"></input>
                   <label>First</label>
                 </div>
-                <div>
+                <div className="shift">
                   <input type="radio" name="shift" value="second"></input>
                   <label>Second</label>
                 </div>
@@ -233,13 +205,17 @@ function Field() {
                 rows="5"
                 name="content"
               ></textarea>
-              
               <button type="submit">Submit</button>
             </form>
           </Modal>
+          <button type="button" onClick={showMessages}>
+            Send A Message
+          </button>
+          </div>
+        
+        <div className="bottom-Bar">
+        <h4 className="welcome">{Date()}</h4>
         </div>
-        <button onClick={sendData}>Send Data</button>
-        <div className="bottom-Bar">Field Tech Portal</div>
       </div>
     </div>
   );

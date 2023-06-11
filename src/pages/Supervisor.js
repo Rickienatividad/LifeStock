@@ -5,6 +5,7 @@ import { Modal } from "../components/Modal.js";
 import { Items } from "./Items";
 import { Checklists } from "./Checklists";
 
+import GameBoard from "../components/Game";
 import Sidebar from "../components/Sidebar.js";
 import WeatherCard from "../components/Weather";
 import Map from "../components/Map";
@@ -137,6 +138,7 @@ export function SupervisorView() {
             </table>
           </div>
           </div>
+          <Modal />
           <WeatherCard />
           </div>
           <div className="supervisor-column-2">
@@ -145,11 +147,11 @@ export function SupervisorView() {
             </div>
           </div>
         <div className="inventory_interface">
-            <Modal />
+            
             <Items />
           
             <Checklists />
-          
+
         </div>
       </div>
       </div>
