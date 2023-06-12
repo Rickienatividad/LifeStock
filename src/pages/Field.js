@@ -6,6 +6,7 @@ import jwt_decode from "jwt-decode";
 import axios from "axios";
 import { Modal } from "../components/Modal.js";
 import Sidebar from "../components/Sidebar";
+import { FieldModal } from "../components/FieldModal";
 
 function Field() {
   const jwt = localStorage.getItem("jwt");
@@ -133,49 +134,50 @@ function Field() {
   return (
     <div className="App">
       <div className="field_container">
-      
         <Sidebar id={userId} username={username} userRig={userRig} />
-        
-        <div className="field-checklist-container">
-        <div className="checklist-item-container">
-          <h6>Item</h6>
-          <h6>Minimum</h6>
-          <h6>Actual Count</h6>
-        </div>
-        <div className="field-form-wrapper">
-        {array.map((item) => (
-          <form key={item.rand} className="item-form">
-            <div
-              className="item-flex items"
-              defaultValue={item.manifest_id}
-              onClick={() => findManifest(item.manifest_id)}
-            >
-              <input defaultValue={item.item} readOnly></input>
-              <input defaultValue={item.minimum} readOnly></input>
-              <input
-                defaultValue={item.actual_count}
-                type="number"
-                // onBlur={updateManifest}
-                onBlur={addRequest}
-              ></input>
-            </div>
-          </form>
-        ))}
-        </div>
-        <form onSubmit={handleUpdate}>
-          <label>Signed by:</label>
-          <input type="text" name="signed_by" defaultValue={username}></input>
-          <button type="submit">Save Checklist</button>
-        </form>
-        <div className="field_options">
-          <button type="button" onClick={handleChecklist}>
-            Reset Rig {userRig} Checklist
-          </button>
 
+        <div className="field-checklist-container">
+          <div className="checklist-item-container">
+            <h6>Item</h6>
+            <h6>Minimum</h6>
+            <h6>Actual Count</h6>
           </div>
+          <div className="field-form-wrapper">
+            {array.map((item) => (
+              <form key={item.rand} className="item-form">
+                <div
+                  className="item-flex items"
+                  defaultValue={item.manifest_id}
+                  onClick={() => findManifest(item.manifest_id)}
+                >
+                  <input defaultValue={item.item} readOnly></input>
+                  <input defaultValue={item.minimum} readOnly></input>
+                  <input
+                    defaultValue={item.actual_count}
+                    type="number"
+                    // onBlur={updateManifest}
+                    onBlur={addRequest}
+                  ></input>
+                </div>
+              </form>
+            ))}
           </div>
-          <div className="field-messages-container">
-          <Modal show={isInputVisible} onClose={hideMessages}>
+          <form onSubmit={handleUpdate}>
+            <label className="signed">Signed by:</label>
+            <input
+              type="text"
+              name="signed_by"
+              defaultValue={username}
+              hidden
+            ></input>
+            <button type="submit">Save Checklist</button>
+            <button type="button" onClick={handleChecklist}>
+              Reset Rig {userRig} Checklist
+            </button>
+          </form>
+        </div>
+        <div className="field-messages-container">
+          <FieldModal show={isInputVisible} onClose={hideMessages}>
             <form onSubmit={handleSubmit}>
               <input
                 type="hidden"
@@ -207,14 +209,11 @@ function Field() {
               ></textarea>
               <button type="submit">Submit</button>
             </form>
-          </Modal>
-          <button type="button" onClick={showMessages}>
-            Send A Message
-          </button>
-          </div>
-        
+          </FieldModal>
+        </div>
+
         <div className="bottom-Bar">
-        <h4 className="welcome">{Date()}</h4>
+          <h4 className="welcome">{Date()}</h4>
         </div>
       </div>
     </div>

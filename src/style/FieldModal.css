@@ -1,0 +1,24 @@
+.modal-main {
+  overflow-y:auto;
+  height:auto;
+  min-height:93%;
+  width:250px;
+  background-color: var(--background-color-dark);
+  border-radius:5px;
+  box-shadow: 10px 10px 50px rgb(0, 0, 0);
+  color: #fff;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content: flex-start;
+}
+.modal-main p {
+  padding: 2px 5px 2px 5px;
+  color: #fff;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+.message{
+  margin: 5px 5px 5px 5px;
+  background:var(--background-color-medium);
+}

@@ -140,6 +140,9 @@ form textarea {
   text-align: center;
 }
 
+.signed {
+  display: none;
+}
 
 
 
