@@ -7,39 +7,14 @@ function Sidebar(props) {
   const userRig = props.userRig;
 
   return (
-<<<<<<< HEAD
-    <div>
-      <div className={`sidebar ${isOpen ? "open" : ""}`}>
-        <button className="toggle-btn" onClick={toggleSidebar}>
-          <span className={`toggle-icon ${isOpen ? "open" : ""}`}>≡</span>
-        </button>
-        <div className={`sidebar-content ${isOpen ? "open" : ""}`}>
-          <div
-            className="sidebar-1"
-            style={{
-              backgroundImage: `url("/img/${userId}.png")`,
-            }}
-          ></div>
-          <div className="sidebar-2">
-            <h1 className="name">{username}</h1>
-          </div>
-          <div className="sidebar-3"></div>
-          <div className="sidebar-4">
-            <h5>Assignment: rig {userRig}</h5>
-          </div>
-
-          <div className="sidebar-5"></div>
-        </div>
-      </div>
-=======
     <div className={`sidebar`}>
-        <div
-          className="sidebar-1"
-          // style={{
-          //   backgroundImage: `url("../assets/${userId}.jpg")`,
-          // }}
-        ></div>
-        <div className="sidebar-info">
+      <div
+        className="sidebar-1"
+        // style={{
+        //   backgroundImage: `url("../assets/${userId}.jpg")`,
+        // }}
+      ></div>
+      <div className="sidebar-info">
         <div className="sidebar-2">
           <h1 className="name">{username}</h1>
         </div>
@@ -49,8 +24,7 @@ function Sidebar(props) {
         </div>
 
         <div className="sidebar-5"></div>
-        </div>
->>>>>>> 1b05cc4f7a1cfc8acb2d18651ff9e09c00bbe062
+      </div>
     </div>
   );
 }

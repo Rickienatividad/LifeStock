@@ -40,15 +40,8 @@ width: 250px;
 height: 20px;
 }
 
-<<<<<<< HEAD
-.checklist_interface_title{
-    font-size:.75em;
-    padding:3%;
-    margin-top:0.75rem;
-=======
 .checklist_display tr {
 box-shadow: 2px 2px 5px var(--box-shadow-color);
->>>>>>> 1b05cc4f7a1cfc8acb2d18651ff9e09c00bbe062
 }
 
 .checklist_interface_title,

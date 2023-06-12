@@ -5,13 +5,6 @@ import { useEffect, useState } from "react";
 export function Items() {
   const [items, setItems] = useState([]);
 
-<<<<<<< HEAD
-=======
-  const deleteItems = (item) => {
-    axios.delete(`http://localhost:3000/items/${item}.json`);
-  };
-
->>>>>>> 1b05cc4f7a1cfc8acb2d18651ff9e09c00bbe062
   const handleItems = () => {
     axios.get("http://localhost:3000/items.json").then((response) => {
       setItems(response.data);
