@@ -1,0 +1,86 @@
+.game-card{
+    height:auto;
+    width:400px;
+    background-color:var(--background-color-medium);
+}
+.leftbuttons{
+    width:40px;
+    height:40px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+    align-items:center;
+}
+    .moveLeft{
+        background-color:rgb(130, 26, 151);
+        width:20px;
+        height:20px;
+        font-size:3rem;
+        color:white;
+        text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
+    }
+.rightbuttons{
+    width:40px;
+    height:40px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+    align-items:center;
+}
+    .moveRight{
+        background-color:rgb(130, 26, 151);
+        width:20px;
+        height:20px;
+        font-size:3rem;
+        color:white;
+        text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
+    }
+    .fire{
+        background-color:rgb(130, 26, 151);
+        background-image:url('../assets/syringe.png');
+        background-size:contain;
+        width:20px;
+        height:20px;
+        border-radius:50%;
+        font-size:3rem;
+        color:white;
+        text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
+    }
+.gameContainer{
+    height: auto;
+    width: auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+    .grid{
+        width: 300px;
+        height: 300px;
+        border: 1px solid black;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+        .grid div{
+            width: 20px;
+            height: 20px;
+        }
+
+        .invader {
+            background-image:url('../assets/elderlyinvader.png');
+            background-size:contain;
+        
+        }
+        .shooter {
+            background-image:url('../assets/ambulance.png');
+        }
+        
+        .laser {
+            background-image:url('../assets/syringe.png');
+        
+        }
+        
+        .boom {
+            background-image:url('../assets/Zz.png');
+        }

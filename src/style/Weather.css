@@ -1,0 +1,36 @@
+.weather-card {
+    height:400px;
+    width:400px;
+    background-color:#444;
+    box-shadow: 10px 10px 50px rgb(0, 0, 0);
+    border-radius:5px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom:10px;
+}
+.weather {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin: 15px 0;
+    font-size: 1.5rem;
+  }
+
+  #location {
+    font-size: 3rem;
+    font-weight: 800;
+    font-style: italic;
+  }
+  .desc {
+    font-size: 1.25rem;
+    text-transform: capitalize;
+  }
+
+  .circle {
+    background-color: black;
+    border-radius: 50px;
+    height: 15px;
+    width: 15px;
+    margin: 0 15px;
+  }
