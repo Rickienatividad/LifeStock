@@ -3,3 +3,18 @@
     width: 100vw;
     overflow: auto;
   }
+
+  .flex-container {
+    margin-top: 2.5rem;
+    display: flex;
+     justify-content:space-around;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .graph {
+      width: "60vw";
+      height: "90vh",
+    }

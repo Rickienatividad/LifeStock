@@ -24,10 +24,10 @@ export function ChecklistNumbers() {
   // logic for populating chart with number of checklists for each rig
 
   const [counts, setCounts] = useState({});
-  const [countsVisible, setCountsVisible] = useState(false);
+  const [countsVisible, setCountsVisible] = useState(true);
 
   const checklistCounter = () => {
-    setCountsVisible(!countsVisible);
+    // setCountsVisible(!countsVisible);
     let listCounts = {};
     for (let i = 0; i < checklists.length; i++) {
       if (listCounts[checklists[i]["rig_id"]]) {
@@ -43,11 +43,10 @@ export function ChecklistNumbers() {
   return (
     <div>
       <button type="button" onClick={() => checklistCounter()}>
-        Checklists Per Rig
+        Load Stats
       </button>
       <div
         style={{
-          display: countsVisible ? "block" : "none",
           width: "40vw",
           height: "50vh",
         }}
@@ -72,6 +71,7 @@ export function ChecklistNumbers() {
             ],
           }}
           options={{
+            responsive: true,
             maintainAspectRatio: true,
             scale: {
               ticks: {

@@ -4,6 +4,7 @@ import "../style/Copies.css";
 import { SupeModal } from "../components/SupeModal";
 import { ListsIndex } from "./ListsIndex";
 import { ListsShow } from "./ListsShow";
+import { ChecklistNumbers } from "./ChecklistNumbers";
 
 export function Copies() {
   // acquire rig checklist index for all rigs
@@ -47,7 +48,11 @@ export function Copies() {
 
   return (
     <div className="main">
-      <ListsIndex checklists={checklists} onSelectList={showList} />
+      <div className="flex-container">
+        <ChecklistNumbers />
+        <ListsIndex checklists={checklists} onSelectList={showList} />
+      </div>
+
       <SupeModal show={isListVisible} onClose={hideList}>
         <ListsShow list={currentList} array={array} />
       </SupeModal>

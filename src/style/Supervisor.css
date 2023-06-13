@@ -205,4 +205,8 @@ option{
   padding:2px;
 }
 
-
+.lists-btns {
+  position: absolute;
+  left: 0;
+  margin-top: 8rem;
+}

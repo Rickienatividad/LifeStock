@@ -9,6 +9,7 @@ import GameBoard from "../components/Game";
 import Sidebar from "../components/Sidebar.js";
 import WeatherCard from "../components/Weather";
 import Map from "../components/Map";
+import { Link } from "react-router-dom";
 
 export function SupervisorView() {
   //USERS
@@ -76,84 +77,86 @@ export function SupervisorView() {
     <div className="supervisor_container">
       <h2 className="welcome">LIFESTOCK | Supervisor</h2>
       <Sidebar />
+      <span className="lists-btns">
+        <Link to="/copies">
+          <button>Copies</button>
+        </Link>
+      </span>
       <div className="supervisor-content">
-      <div className="supervisor-columns">
-        <div className="supervisor-column-1">
-          <div className="assignment-form-container">
-          <form className="assign-form" onSubmit={handleFieldAssign}>
-            <div className="assign-tech" id="card">
-
-            <label>Tech:</label>
-            <select id="id" name="id" size="8">
-              {usersInfo.map((container) => (
-                <option
-                  value={container.id}
-                  onClick={selectedUser}
-                  key={container.id}
-                >
-                  {container.firstName}
-                </option>
-              ))}
-            </select>
+        <div className="supervisor-columns">
+          <div className="supervisor-column-1">
+            <div className="assignment-form-container">
+              <form className="assign-form" onSubmit={handleFieldAssign}>
+                <div className="assign-tech" id="card">
+                  <label>Tech:</label>
+                  <select id="id" name="id" size="8">
+                    {usersInfo.map((container) => (
+                      <option
+                        value={container.id}
+                        onClick={selectedUser}
+                        key={container.id}
+                      >
+                        {container.firstName}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="assign-rig" id="card">
+                  <label>Rig:</label>
+                  <select id="rig_id" name="rig_id" size="6">
+                    <option value="1">Rig 1</option>
+                    <option value="2">Rig 2</option>
+                    <option value="3">Rig 3</option>
+                    <option value="4">Rig 4</option>
+                    <option value="5">Rig 5</option>
+                    <option value="6">Rig 6</option>
+                    <option value={null}>Unassign</option>
+                  </select>
+                  <button className="rig-button" type="submit">
+                    Submit
+                  </button>
+                </div>
+              </form>
+              <div className="assignments-container" id="card">
+                <h3>Current Assignments</h3>
+                <table className="assignments-table">
+                  <thead>
+                    <tr>
+                      <th>Rig</th>
+                      <th>Tech 1</th>
+                      <th>Tech 2</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {rigs.map((rig) => (
+                      <tr key={rig.id}>
+                        <td>{rig.id}</td>
+                        <td>
+                          {rig.users.length >= 1 ? rig.users[0].first_name : ""}
+                        </td>
+                        <td>
+                          {rig.users.length > 1 ? rig.users[1].first_name : ""}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <div className="assign-rig" id="card">
-            <label>Rig:</label>
-            <select id="rig_id" name="rig_id" size="6">
-              <option value="1">Rig 1</option>
-              <option value="2">Rig 2</option>
-              <option value="3">Rig 3</option>
-              <option value="4">Rig 4</option>
-              <option value="5">Rig 5</option>
-              <option value="6">Rig 6</option>
-              <option value={null}>Unassign</option>
-            </select>
-            <button className="rig-button" type="submit">
-              Submit
-            </button>
-            </div>
-          </form>
-                    <div className="assignments-container" id="card">
-            <h3>Current Assignments</h3>
-            <table className="assignments-table">
-              <thead>
-                <tr>
-                  <th>Rig</th>
-                  <th>Tech 1</th>
-                  <th>Tech 2</th>
-                </tr>
-              </thead>
-              <tbody>
-                {rigs.map((rig) => (
-                  <tr key={rig.id}>
-                    <td>{rig.id}</td>
-                    <td>
-                      {rig.users.length >= 1 ? rig.users[0].first_name : ""}
-                    </td>
-                    <td>
-                      {rig.users.length > 1 ? rig.users[1].first_name : ""}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          </div>
-          <Modal />
-          <WeatherCard />
+            <Modal />
+            <WeatherCard />
           </div>
           <div className="supervisor-column-2">
             <div className="Map">
               <Map />
             </div>
           </div>
-        <div className="inventory_interface">
-            
+          <div className="inventory_interface">
             <Items />
-          
-            <Checklists />
 
+            <Checklists />
+          </div>
         </div>
-      </div>
       </div>
       <div className="supervisor_buttons">
         {/* <button>
