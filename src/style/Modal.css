@@ -2,7 +2,7 @@
   .modal-main {
     overflow-y:auto;
     height:auto;
-    min-height:93%;
+    /* min-height:93%; */
     width:250px;
     background-color: var(--background-color-dark);
     border-radius:5px;
@@ -22,4 +22,8 @@
   .message{
     margin: 5px 5px 5px 5px;
     background:var(--background-color-medium);
+  }
+
+  .messages-container {
+    max-height: 50vh;
   }

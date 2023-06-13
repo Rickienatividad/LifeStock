@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "../style/Copies.css";
-import { Modal } from "../components/Modal";
+import { SupeModal } from "../components/SupeModal";
 import { ListsIndex } from "./ListsIndex";
 import { ListsShow } from "./ListsShow";
 
@@ -48,9 +48,9 @@ export function Copies() {
   return (
     <div className="main">
       <ListsIndex checklists={checklists} onSelectList={showList} />
-      <Modal show={isListVisible} onClose={hideList}>
+      <SupeModal show={isListVisible} onClose={hideList}>
         <ListsShow list={currentList} array={array} />
-      </Modal>
+      </SupeModal>
     </div>
   );
 }
